@@ -10,11 +10,13 @@
 <link href="css/orderlist.css" rel="stylesheet">
 <link href="css/reset.css" rel="stylesheet">
 </head>
+<script src="js/takeout.js"></script>
+<script src="js/orderlist.js"></script>
 
 <body>
     <div id="mainWrap">
         <div id="header">
-            <img src="img/orderlistAL.png">
+            <img id="headerPrev" src="img/orderlistAL.png">
             <div id="headerBtnWrap">
                 <div class="headerBtn">
                     <span>커피</span>
@@ -27,7 +29,7 @@
                 </div>
 
             </div>
-            <img src="img/orderlistAR.png">
+            <img id="headerNext" src="img/orderlistAR.png">
         </div>
         <div id="content">
 
@@ -37,6 +39,19 @@
                 <span id="EA">0</span>
                 주문수량
             </span>
+            <div id="systemBtnWrap">
+                <div class="systemBtn" id="cancelBtn">
+                    <span>전체취소</span>
+                </div>
+                <div class="systemBtn" id="cashBtn">
+                    <img src="img/cash.png">
+                    <div>CASH</div>
+                </div>
+                <div class="systemBtn" id="cardBtn">
+                    <img src="img/card.png">
+                    <div>CARD</div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
