@@ -1,0 +1,16 @@
+body{
+    background: #efe303;
+}
+#content{
+    width: 900px;
+    height: 1080px;
+    margin: 0 auto;
+    background: #fff200;
+}
+#introImg{
+    position: relative;
+    top:292px;
+    left: 306px;
+    transition: all 1s;
+    opacity: 1;
+}
