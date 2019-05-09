@@ -55,7 +55,7 @@ function initProduct() {
 
     for (let i = 0; i < productLength.length; i++) {
         coffeeImg[i].src = img[i];
-        coffeeImg[i].classList.add(coffeeList[i]);
+      
     }
 }
 initProduct();
