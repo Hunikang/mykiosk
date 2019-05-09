@@ -1,0 +1,75 @@
+#paymentWrap{
+    width: 856px;
+    height: 767px;
+    background: rgba(0, 0, 0, 0.123);
+    position: relative;
+}
+#paymentContent{
+    width: 700px;
+    height: 600px;
+    background: #fff200;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+   
+}
+#paymentSub{
+    font-size: 72px;
+    font-weight: bold;
+    display: block;
+    margin-top: 39px;
+    margin-left: 13px;
+}
+#paymentProduct{
+    width: 645px;
+    height: 203px;
+    background: white;
+    border: 1px solid steelblue;
+    margin-top: 44px;
+    margin-left: 28px;
+    box-sizing: border-box;
+}
+#paymentConfirm{
+    width: 645px;
+    height: 100px;
+    
+    margin-left: 28px;
+    overflow: hidden;
+}
+#endPriceWrap{
+    font-size: 38px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-left: 10px;
+    display: block;
+    float: left;
+}
+#paymentConfirmBtn{
+    width: 296px;
+    height: 68px;
+    background: #d83b55;
+    border-radius: 10px;
+    float: right;
+    margin-top: 15px;
+    margin-right: 20px;
+    line-height: 68px;
+    color: white;
+    font-size: 38px;
+    text-align: center;
+    font-weight: bold;
+   
+}
+#paymentBack{
+    width: 186px;
+    height: 61px;
+    background: #7ac9da;
+    border-radius: 10px;
+    line-height: 61px;
+    text-align: center;
+    color:white;
+    font-size: 38px;
+    margin-left: 18px;
+    margin-top: 70px;
+    font-weight: bold;
+}

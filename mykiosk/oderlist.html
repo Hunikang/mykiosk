@@ -1,20 +1,53 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>Examples</title>
-<meta name='viewport' content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no'/>
-<meta name="description" content="">
-<meta name="keywords" content="">
-<link href="css/orderlist.css" rel="stylesheet">
-<link href="css/reset.css" rel="stylesheet">
-</head>
 
-<body>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Examples</title>
+    <meta name='viewport'
+        content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' />
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="css/orderlist.css" rel="stylesheet">
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/swiper.css" rel="stylesheet">
+    <script src="./js/swiper.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style>
+        .swiper-container {
+            width: 900px;
+            height: 621px;
+            /* border:5px solid silver; */
+            /* border-radius:7px; */
+            /* box-shadow:0 0 20px #ccc inset; */
+        }
+
+        .swiper-slide {
+
+            text-align: center;
+            display: flex;
+            /* 내용을 중앙정렬 하기위해 flex 사용 */
+            /* align-items: center; */
+            /* 위아래 기준 중앙정렬 */
+            /* justify-content: center; */
+            /* 좌우 기준 중앙정렬 */
+        }
+
+        .swiper-slide img {
+            /* box-shadow:0 0 5px #555; */
+        }
+    </style>
+</head>
+<script src="js/takeout.js"></script>
+<script src="js/orderlist.js"></script>
+
+
+<body onselectstart="return false">
     <div id="mainWrap">
         <div id="header">
-            <img src="img/orderlistAL.png">
+            <img id="headerPrev" class="swiper-button-prev" src="img/orderlistAL.png">
             <div id="headerBtnWrap">
                 <div class="headerBtn">
                     <span>커피</span>
@@ -27,18 +60,65 @@
                 </div>
 
             </div>
-            <img src="img/orderlistAR.png">
+            <img id="headerNext" class="swiper-button-next" src="img/orderlistAR.png">
         </div>
         <div id="content">
-
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide slide1">
+                        <show></show>
+                    </div>
+                    <div class="swiper-slide slide2">
+                        <show></show>
+                    </div>
+                    <div class="swiper-slide slide3">
+                        <show></show>
+                    </div>
+                </div>
+                <!-- 페이징 -->
+                <div class="swiper-pagination"></div>
+            </div>
         </div>
         <div id="footer">
             <span id="EaWrap">
                 <span id="EA">0</span>
                 주문수량
             </span>
+            <div id="systemBtnWrap">
+                <div class="systemBtn" id="cancelBtn">
+                    <span>전체취소</span>
+                </div>
+                <div class="systemBtn" id="cashBtn">
+                    <img src="img/cash.png">
+                    <div>CASH</div>
+                </div>
+                <div class="systemBtn" id="cardBtn">
+                    <img src="img/card.png">
+                    <div>CARD</div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
+<script>
+    window.onload = function () {
+        var temp = localStorage.getItem('takeout');
+
+
+    }
+</script>
+<script>
+    new Swiper('.swiper-container', {
+        pagination: { // 페이징 설정
+            el: '.swiper-pagination',
+            clickable: true, // 페이징을 클릭하면 해당 영역으로 이동, 필요시 지정해 줘야 기능 작동
+        },
+        navigation: { // 네비게이션 설정
+            nextEl: '.swiper-button-next', // 다음 버튼 클래스명
+            prevEl: '.swiper-button-prev', // 이번 버튼 클래스명
+        },
+    });
+</script>
+<script src="js/order.js"></script>
 
 </html>

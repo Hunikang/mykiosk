@@ -1,0 +1,66 @@
+#paymentWrap{
+    width: 856px;
+    height: 767px;
+    background: rgba(0, 0, 0, 0.123);
+    position: relative;
+}
+#paymentContent{
+    width: 700px;
+    height: 600px;
+    background: #fff200;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+   
+}
+#paymentContent-1{
+    width: 700px;
+    height: 243px;
+    
+    overflow: hidden;
+}
+#paymentIng{
+    display: block;
+    font-size: 25px;
+    font-weight: bold;
+    color:#6d6d6d;
+    margin-top: 22px;
+    margin-left: 26px;
+    float: left;
+}
+#homeIcon{
+    float: right;
+    margin-top: 14px;
+    margin-right: 10px;
+}
+#cardIcon{
+    margin-top: 97px;
+    margin-left: 21px;
+}
+#confirm{
+    display: block;
+    font-size: 25px;
+    font-weight: bold;
+    color:#6d6d6d;
+    margin-left: 28px;
+    margin-top: 48px;
+}
+#confirmBtn{
+    width: 430px;
+    height: 125px;
+    background: #00a0e9;
+    line-height: 125px;
+   
+    color:#ffffff;
+    font-size: 33px;
+    font-weight: bold;
+    margin-left: 126px;
+    margin-top: 58px;
+    padding-left: 20px;
+
+}
+#confirmPrice{
+    margin-left: 50px;
+    color:tomato;
+}
