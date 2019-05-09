@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name='viewport' content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no'/>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <button id="myBTn"> 가져오기 </button>
+    <p id="print"></p>
+</body>
+<script>
+const myBTn = document.querySelector('#myBTn');
+const print = document.querySelector('#print');
+
+myBTn.addEventListener('click',function(){
+
+    var xhr = new XMLHttpRequest();
+    var url = './json.json';
+
+    xhr.open('GET',url);
+    xhr.send();
+
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == XMLHttpRequest.DONE){
+            if(xhr.status){
+                let loaded = JSON.parse(xhr.responseText);
+                print.innerHTML(loaded);
+            }else{
+                alert('실패');
+            }
+        }
+    }
+
+});
+
+</script>
+</html>
