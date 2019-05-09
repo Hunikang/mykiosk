@@ -1,4 +1,7 @@
-import aaa from './j'
+import Vue from 'vue'
+import App from './App.vue'
 
-
-alert(aaa);
+new Vue({
+  el: '#app',
+  render: h => h(App)
+})
