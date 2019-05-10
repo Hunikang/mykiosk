@@ -77,6 +77,7 @@ function initProduct() { //상품목록 업데이트
     const coffeeImg = document.querySelectorAll('.coffeeImg');
     const coffeeName = document.querySelectorAll('.coffeeName');
     const coffeePrice = document.querySelectorAll('.coffeePrice');
+    
 
     loadJson(function(data){
         jsonData = JSON.parse(data);
@@ -85,8 +86,9 @@ function initProduct() { //상품목록 업데이트
             coffeeImg[cnt].src=jsonData[i].img;
             coffeeName[cnt].innerHTML=jsonData[i].name;
             coffeePrice[cnt].innerHTML=jsonData[i].price;
+            productLength[cnt].id=i;
             cnt++;
-            console.log(jsonData[i].img);
+            
         }
         
     });
@@ -119,3 +121,34 @@ function BtnEvent(btn) { //버튼 누를때 애니메이션
 
 }
 BtnEvent();
+
+
+
+function order(){
+    const Btn = document.querySelectorAll('.coffeeMenu');
+    let coffeeName = [];
+    loadJson(function(data){
+        const jsonData = JSON.parse(data);
+        let cnt = 0;
+        for(let n in jsonData){
+            coffeeName[cnt]=jsonData[n].name;
+            cnt++;
+        }
+    });
+    for(let i=0; i<Btn.length; i++){
+        Btn[i].addEventListener('click',function(e){
+            if(!e.target.id){
+               alert(e.target.parentElement.id);
+               const tmp = e.target.parentElement.id;
+               const coffeeIndex = tmp.replace('coffee','');
+               localStorage.setItem(e.target.parentElement.id,coffeeName[coffeeIndex])
+            }else{
+                alert(e.target.id);
+                const tmp = e.target.id;
+                const coffeeIndex = tmp.replace('coffee','');
+                localStorage.setItem(e.target.id,coffeeName[coffeeIndex])
+            }
+        });
+    }
+}
+order();
