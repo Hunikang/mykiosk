@@ -153,4 +153,5 @@ body{
 .coffeeImg{
     /* width: 125px; */
     height: 140px;
+    margin: 0 auto;
 }
