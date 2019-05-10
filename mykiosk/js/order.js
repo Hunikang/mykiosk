@@ -6,7 +6,7 @@ function loadJson(callback){ //에이젝스
     xhr.open('GET', 'CoffeeData.json', true);
     xhr.onreadystatechange = function(){
         if(xhr.status == 200 && xhr.readyState == 4){
-            callback(xhr.responseText);
+            callback(xhr.response);
         }
     }
     xhr.send();
@@ -142,14 +142,69 @@ function order(){
                
                const tmp = e.target.parentElement.id; // 부모요소의 아이디(커피인덱스) 대입
                const coffeeIndex = tmp.replace('coffee',''); // ex) coffee1 이면 coffee 삭제후 1을 coffeeName[숫자]로 사용하기위해 대입
-               localStorage.setItem(e.target.parentElement.id,coffeeName[coffeeIndex]) // coffeeName[인덱스] 로 클릭한 요소에 맞는 커피이름을 스토리지에 저장
+               localStorage.setItem(e.target.parentElement.id,coffeeName[coffeeIndex-1]) // coffeeName[인덱스] 로 클릭한 요소에 맞는 커피이름을 스토리지에 저장
             
             }else{ // 부모요소이면.
                 const tmp = e.target.id;
                 const coffeeIndex = tmp.replace('coffee','');
-                localStorage.setItem(e.target.id,coffeeName[coffeeIndex])
+                localStorage.setItem(e.target.id,coffeeName[coffeeIndex-1])
+                
             }
         });
     }
 }
 order();
+
+
+
+
+function loadMenuSelecter(callback) { //에이젝스
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'menuSelecter.html', true);
+    xhr.onreadystatechange = function () {
+        if (xhr.status == 200 && xhr.readyState == 4) {
+            callback(xhr.response);
+        }else{
+        }
+    }
+    xhr.send();
+}
+
+function loadMenuSelecterInit() { //에이젝스호출
+    loadMenuSelecter(function (data) {
+       var htmldata = data;
+       var tmp = document.querySelector('#test');
+       tmp.insertAdjacentHTML('beforeend',htmldata);
+       var menuOpen=document.querySelector('#menuSelecterWrap');
+       menuOpen.style.transform='transition: all 1s;';
+       menuOpen.style.transform='scale(1)';
+       var closeBtn = document.querySelector('.closeBtn');
+       closeBtn.addEventListener('click', function () {
+           alert('aa');
+       });
+    });
+}
+
+var coffeeBtn = document.querySelectorAll('.coffeeMenu');
+
+
+for(var i=0; i<coffeeBtn.length; i ++){
+    coffeeBtn[i].addEventListener('click',function(){
+        
+        loadMenuSelecterInit();
+     
+                 
+    });
+    
+}
+
+
+function closeBtn() {
+    if (document.querySelector('#menuSelecterWrap') = !null) {
+        var closeBtn = document.querySelector('.closeBtn');
+        closeBtn.addEventListener('click', function () {
+            alert('aa');
+        });
+    }
+}

@@ -1,8 +1,9 @@
 #menuSelecterWrap{
     width: 856px;
     height: 767px;
-    background: rgba(0, 0, 0, 0.123);
-    position: relative;
+    background: rgba(0, 0, 0, 0.38);
+    transform: scale(0.5);
+    transition: all 1s;
 }
 #menuSelecterContent{
     width: 700px;
@@ -17,9 +18,41 @@
 .menuSelecterCoffeeImg{
     height: 140px;
     margin: 35px;
-    display: inline-block;
+    display: block;
+    float: left;
 }
 .menuSelecterCoffeeName{
+    display: block;
+    float: left;
+    font-size: 2em;
+    margin-top: 137px;
+    font-weight: bold;
+}
+#menuSelecter{
+    width: 660px;
+    height: 100px;
+    background: whitesmoke;
+    padding: 20px;
+    clear: both;
+}
+.closeBtn{
+    z-index: 100;
+    width: 8%;
+    float: right;
+    cursor: pointer;
+    transition: all .1s;
+    transform: scale(1);
+}
+.closeBtn:hover{
+    transform: scale(1.1);
+}
+.menuSelecterPrice{
+    width: 500px;
+    height: 100px;
+    background: antiquewhite;
+    margin: 0 auto;
     line-height: 100px;
-    display: inline-block;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
 }
