@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <button id="myBTn"> 가져오기 zz</button>
+    <button id="myBTn"> 가져오기 </button>
     <p id="print">1</p>
 </body>
 <script>
@@ -33,10 +33,13 @@
     }
 
     function init() {
+      
         loadJSON(function (response) {
             // Parse JSON string into object
             var actual_JSON = JSON.parse(response);
-            alert(actual_JSON.coffee01.price);
+            for(var n in actual_JSON){
+              console.log(actual_JSON[n].name);
+            }
         });
     }
 
