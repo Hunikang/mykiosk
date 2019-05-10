@@ -171,16 +171,10 @@ body{
     display: block;
 }
 #coffeeOption{
-    /* position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    z-index: 1000; */
-    float: left;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-53%);
     z-index: 1000;
 
     
