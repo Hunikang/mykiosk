@@ -1,0 +1,25 @@
+#menuSelecterWrap{
+    width: 856px;
+    height: 767px;
+    background: rgba(0, 0, 0, 0.123);
+    position: relative;
+}
+#menuSelecterContent{
+    width: 700px;
+    height: 600px;
+    background: #fff200;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+   
+}
+.menuSelecterCoffeeImg{
+    height: 140px;
+    margin: 35px;
+    display: inline-block;
+}
+.menuSelecterCoffeeName{
+    line-height: 100px;
+    display: inline-block;
+}
