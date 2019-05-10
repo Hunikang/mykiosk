@@ -153,4 +153,13 @@ body{
 .coffeeImg{
     /* width: 125px; */
     height: 140px;
+    display:block;
+    margin: 0 auto;
+}
+.coffeeName{
+    display: block;
+    font: 2em bold;
+}
+.coffeePrice{
+    display: block;
 }
