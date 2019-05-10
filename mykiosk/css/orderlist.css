@@ -11,15 +11,13 @@ body{
     margin: 0 auto;
     background: #fff200;
     overflow: hidden; */
+    margin-top: 100px;
     width: 900px;
-    max-height: 1080px;
-    position: absolute;
+
     background: #fff200;
-    overflow: hidden;
-    clear: both;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
+
+    margin: 0 auto;
+ 
 }
 #header{
     width: 900px;
