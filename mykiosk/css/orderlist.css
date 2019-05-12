@@ -13,7 +13,7 @@ body{
     overflow: hidden; */
     margin-top: 100px;
     width: 900px;
-
+    position: relative;
     background: #fff200;
 
     margin: 0 auto;
@@ -34,6 +34,8 @@ body{
     width: 900px;
     min-height: 621px;
     background: tan;
+    position: relative;
+    overflow: hidden;
 }
 #header img{
     margin: 0 18px;
@@ -75,7 +77,7 @@ body{
     margin-left: 20px;
 }
 #systemBtnWrap{
-    width: 428px;
+    width: 604px;
     height: 122px;
     float: right;
     margin-top:9px;
@@ -88,7 +90,17 @@ body{
     float: left;
     border-radius: 10px;
     cursor: pointer;
+    overflow: hidden;
 }
+#cartBtn{
+    background: #6749ff;
+
+    margin: 0 26px;
+}
+#cartBtn img{
+    margin-top: 18px;
+}
+
 #cancelBtn{
     background: #d85a5a;
     
@@ -150,9 +162,14 @@ body{
 .coffeeMenu{
     width: 240px;
     height: 260px;
-    border: 1px solid black;
+   transform: scale(1);
+   transition: all .3s;
     overflow: hidden;
     float: left;
+    cursor: pointer;
+}
+.coffeeMenu:hover{
+    transform: scale(1.2);
 }
 .coffeeMenu:nth-child(2),.coffeeMenu:nth-child(5){
     margin: 0 37px;
@@ -169,6 +186,7 @@ body{
 }
 .coffeePrice{
     display: block;
+    font-size: 1.3em;
 }
 #coffeeOption{
     position: absolute;
@@ -178,4 +196,62 @@ body{
     z-index: 1000;
 
     
+}
+.isOptions{
+    padding: 5px 10px;
+    background: tan;
+    margin: 10px;
+    line-height: 150px;
+    font-size: 1.3em;
+    font-weight: bold;
+    display: none;
+    color:white;    
+}
+#Oice{
+    background: skyblue;
+}
+#Ohot{
+    background: salmon;
+    display: inline;
+}
+#Osyrup{
+    background: darkolivegreen;
+}
+#Oshot{
+    background: yellow;
+    color: black;
+    border: 1px solid black;
+}
+#options{
+    position: absolute;
+    top: 0;
+    left: 325px;
+}
+#CoffeeCart{
+    width: 200px;
+    height: 621px;
+    background: #3867d6;
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+    left: 900px;
+    transition: all .3s;
+}
+#CoffeeCartTop{
+    width: 100%;
+    height: 90%;
+    background: thistle;
+    overflow: auto;
+}
+#CoffeeCartBot{
+    width: 100%;
+    height: 10%;
+    line-height: 2;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    
+}
+.myOrderListImg{
+    width: 50%;
 }

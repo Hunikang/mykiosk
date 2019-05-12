@@ -13,6 +13,7 @@
     <link href="css/reset.css" rel="stylesheet">
     <link href="css/swiper.css" rel="stylesheet">
     <script src="./js/swiper.js"></script>
+    <link href="./css/menuSelecter.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <style>
@@ -45,7 +46,7 @@
 <body onselectstart="return false">
         
     <div id="mainWrap">
-            <div id="coffeeOption"></div>
+            
         <div id="header">
             <img id="headerPrev" class="swiper-button-prev" src="img/orderlistAL.png">
             <div id="headerBtnWrap">
@@ -63,6 +64,12 @@
             <img id="headerNext" class="swiper-button-next" src="img/orderlistAR.png">
         </div>
         <div id="content">
+                <div id="CoffeeCart">
+                    <div id="CoffeeCartTop">
+                        <ul id="coffeeList"></ul>
+                    </div>
+                    <div id="CoffeeCartBot"></div>
+                </div>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide slide1">
@@ -85,6 +92,10 @@
                 주문수량
             </span>
             <div id="systemBtnWrap">
+                <div class="systemBtn" id="cartBtn">
+                        <img src="img/cart.png">
+                     
+                        </div>
                 <div class="systemBtn" id="cancelBtn">
                     <span>전체취소</span>
                 </div>
@@ -98,6 +109,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
     
 </body>
