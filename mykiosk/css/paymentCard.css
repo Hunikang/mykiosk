@@ -1,0 +1,17 @@
+#paymentCardWrap{
+    width: 899px;
+    height: 622px;
+    background: rgba(0, 0, 0, 0.38);
+   
+    
+}
+#paymentCardContent{
+    width: 700px;
+    height: 600px;
+    background: #fff200;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+   
+}

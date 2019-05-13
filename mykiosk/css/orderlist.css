@@ -240,8 +240,10 @@ body{
 #CoffeeCartTop{
     width: 100%;
     height: 90%;
-    background: thistle;
+    background: #fff200;
     overflow: auto;
+
+    
 }
 #CoffeeCartBot{
     width: 100%;
@@ -250,8 +252,25 @@ body{
     text-align: center;
     font-size: 2em;
     font-weight: bold;
+    color:white;
     
 }
 .myOrderListImg{
     width: 50%;
+    margin-left: 47px;
+}
+.myOrderListSub{
+    font-weight: bold;
+}
+.orderCancelBtn{
+    text-align: center;
+}
+.orderCancelBtnimg{
+    width: 12%;
+    float: right;
+}
+
+
+.paymentCardWrap{
+    
 }

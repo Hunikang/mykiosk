@@ -1,3 +1,17 @@
+/*
+ * author : kang jihoon
+ * email : snowleopard902@gmail.com
+ *
+ *
+ */
+
+
+
+
+
+
+
+
 var orderList = [] // 주문이 담기는 배열 선언
 var g_coffee; // 커피 json 저장하는 변수
 
@@ -37,8 +51,6 @@ var slide3 = new Vue({
 });
 
 
-
-
 function loadJson(callback) { //에이젝스
 
   var xhr = new XMLHttpRequest();
@@ -75,6 +87,7 @@ function initProduct() { //상품목록 업데이트
     let cnt = 0;
 
     for (let i in g_coffee) { // (이미지주소 , 이름 , 가격 가져오기 ) ( coffeeMenu 의 아이디를 CoffeeData의 name 키값으로함)
+
       coffeeImg[cnt].src = g_coffee[i].img;
       coffeeName[cnt].innerHTML = g_coffee[i].name;
       coffeePrice[cnt].innerHTML = g_coffee[i].price;
@@ -89,7 +102,6 @@ function initProduct() { //상품목록 업데이트
 
 }
 initProduct();
-
 
 function BtnEvent() { //버튼 누를때 애니메이션
   const prevBtn = document.querySelector('#headerPrev');
@@ -119,8 +131,7 @@ BtnEvent();
 
 
 const menuOn = { // 상품 옵션 창 
-  menuOpen: '',
-
+  
   Ajax: function (callback) { // 메뉴 오픈 AJAX 함수
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'menuSelecter.html', true);
@@ -133,7 +144,7 @@ const menuOn = { // 상품 옵션 창
   },
 
   createMenu: function (coffeeId) { //메뉴생성함수
-    menuOn.Ajax(function (data) {
+    menuOn.Ajax(function (data) { // data 는 ajax 로 불러온 menuSelecter.html 임
 
       const coffeeOptionData = `<div id="coffeeOption"></div>`;
       const mainWrap = document.querySelector('#mainWrap');
@@ -142,15 +153,15 @@ const menuOn = { // 상품 옵션 창
       const coffeeOption = document.querySelector('#coffeeOption'); // 상품 옵션 창이 들어갈 부모 Element
       coffeeOption.insertAdjacentHTML('beforeend', data); //menuSelecter.html 을 #coffeeOption 에추가
 
-      menu(); //창 등장 애니매이션
+      menu(); //창 등장 애니메이션
       name(coffeeId); //상품처리 
       name.isIce = false; // ice or hot 에 대한 기본값
       close(); // 창닫기
       cancelAll(); //모두취소
     });
 
-    function menu() { //
-      menuOpen = document.querySelector('#menuSelecterWrap');
+    function menu() { // 커피옵션창 애니매이션 ( 미구현 )
+      const menuOpen = document.querySelector('#menuSelecterWrap');
       menuOpen.style.transform = 'transition: all 1s;';
 
     }
@@ -167,12 +178,13 @@ const menuOn = { // 상품 옵션 창
       const iceIcon = document.querySelector('#Oice');
       const hotIcon = document.querySelector('#Ohot');
       const priceDefalut = g_coffee[coffeeId].price;
-      let price = priceDefalut;
-      let isIce = false;
+      let price = priceDefalut; // 옵션추가 하지 않은 기본 커피값
+      let isIce = false; // hot  인지 ice 인지 판별
       let syrupCnt = 1;
       let shotCtn = 1;
 
-      coffeePrice.innerHTML = price;
+      coffeePrice.innerHTML = price; //기본 커피값 출력
+
       iceBtn.addEventListener('click', function () { //ice 버튼 누르면 가격 증가, ice아이콘 보임
 
         if (!isIce) {
@@ -274,7 +286,7 @@ const menuOn = { // 상품 옵션 창
         for (let i = 0; i < orderList.length; i++) {
           orderList.pop();
         }
-       
+        CoffeeQy();
       });
 
     }
@@ -317,33 +329,48 @@ function CoffeeQy(del) { // 전체주문수량 출력하는 함수
 
 function CoffeeCart() { //장바구니 on off
   const cartBtn = document.querySelector('#cartBtn');
+  const cartBtn2 = document.querySelector('#cartBtn2');
   const CoffeeCart = document.querySelector('#CoffeeCart');
-//   const CoffeeCartBot = document.querySelector('#CoffeeCartBot');
-//   const CoffeeCartTop = document.querySelector('#CoffeeCartTop');
-//   const body = document.getElementsByName('body');
+  const CoffeeCartTop = document.querySelector('#CoffeeCartTop');
+  //   const CoffeeCartBot = document.querySelector('#CoffeeCartBot');
+  //   const CoffeeCartTop = document.querySelector('#CoffeeCartTop');
+  //   const body = document.getElementsByName('body');
   let set = false; // on off 상태 ck
 
+  cartBtn.addEventListener('click', function (e) { // 장바구니 선언부
+    cartOn();
+  });
 
-
-
-  cartBtn.addEventListener('click', function (e) { // 장바구니 애니매이션
+  function cartOn() { // on off 함수
     if (set) {
       set = false;
       CoffeeCart.style.left = '900px';
       cartOrderClear(); // 장바구니 off 시 상품표시 clear 해준다 
-
-
+      console.log(' 닫힘 !');
 
     } else {
       set = true;
+      console.log(' 열림 !');
       CoffeeCart.style.left = '700px';
       CartSetting(); // 가격출력함수 호출
       cartOrder(); // 장바구니 기능 호출 하는 함수 호출
-
     }
-  });
+  }
 
+  function isClickElse() { // 다른곳 클릭했을때 off 함수
+    window.addEventListener('click', function (e) {
+      if (e.target != cartBtn && e.target != cartBtn2 && !e.target.classList.contains('dontclose')) {
+        console.log('다른곳눌러서닫힘')
+        set = false;
+        CoffeeCart.style.left = '900px';
+        cartOrderClear(); // 장바구니 off 시 상품표시 clear 해준다 
+      } else {
+        console.log('조아 ok ');
+      }
+    });
+  }
 
+  isClickElse();
 }
 CoffeeCart();
 
@@ -358,53 +385,55 @@ function CartSetting() { // 장바구니에서 가격출력 하는 함수
 }
 
 function cartOrder() { // 장바구니 기능 호출하는 함수
+  
   creBTn(); // 장바구니 상품목록 생성하는 함수 호출
   delbTn(); // 개별삭제 버튼 함수
 
-
-
 }
 
-function creBTn() {// 장바구니 상품목록 생성하는 함수 
+function creBTn() { // 장바구니 상품목록 생성하는 함수 
 
   const coffeeList = document.querySelector('#coffeeList');
 
-  const li = `<li class="myOrderList">
-        <img class='myOrderListImg' src='#'>
-        <div class="orderCancelBtn" >누르면삭제</div>
-    </li>`
+  const li = `<li class="myOrderList dontclose">
+        <img class='myOrderListImg dontclose' src='#'> 
+        <div class="orderCancelBtn dontclose" >누르면삭제</div>
+        <span class='myOrderListSub dontclose'></span>
+    </li>`;
 
   for (let i = 0; i < orderList.length; i++) {
     coffeeList.insertAdjacentHTML('beforeend', li);
-    const coffeeOrderImg = document.querySelectorAll('.myOrderListImg');
-    const orderCancelBtn = document.querySelectorAll('.orderCancelBtn');
+    const coffeeOrderImg = document.querySelectorAll('.myOrderListImg'); //커피이미지
+    const orderCancelBtn = document.querySelectorAll('.orderCancelBtn'); //지우기버튼
+    const myOrderListSub = document.querySelectorAll('.myOrderListSub'); //커피이름
+    myOrderListSub[i].innerHTML = orderList[i].name;
     coffeeOrderImg[i].src = orderList[i].img;
-    orderCancelBtn[i].id = orderList[i].name;
+    orderCancelBtn[i].id = orderList[i].name; // 지우기버튼을 눌렀을떄 주문목록에서 커피이름을 지우기위한 변수
     console.log('생성!');
 
   }
 }
 
-function delbTn() {// 개별삭제 버튼 함수
+function delbTn() { // 개별삭제 버튼 함수
   const orderCancelBtn = document.querySelectorAll('.orderCancelBtn');
-  const myOrderList = document.querySelectorAll('.myOrderList');
+  // const myOrderList = document.querySelectorAll('.myOrderList');
 
   for (let i = 0; i < orderCancelBtn.length; i++) {
-    orderCancelBtn[i].addEventListener('click', function (e) {
+    orderCancelBtn[i].addEventListener('click', function (e) { //버튼 수 만큼 이벤트를 건다
 
-      var target = e.target.id;
-      for (let u = 0; u < orderList.length; u++) {
-        if (orderList[u].name == target) {
+      var target = e.target.id; //버튼 아이디 
+      for (let u = 0; u < orderList.length; u++) { //주문갯수 반큼 반복문 돌려서 지울타겟이 되는 상품의 이름을 찾는다
+        if (orderList[u].name == target) { // 버튼아이디(커피이름) 이 주문리스트의 커피이름과 같으면 실행
           console.log('찾음' + i + orderList[u].name);
           // myOrderList[u].remove();
           orderList.splice(u, 1);
           console.log('삭제완료');
           console.log(orderList);
-          cartOrderClear();
-          cartOrder();
-          CartSetting();
-          CoffeeQy();
-          break;
+          cartOrderClear(); //장바구니 삭제
+          cartOrder(); //장바구니 생성
+          CartSetting(); // 장바구니 가격출력
+          CoffeeQy(); // 총 주문갯수 업데이트 
+          break; // 커피종류가 중복되는 경우 break가 없으면 모두 삭제되기 때문에 break 를 걸어준다.
 
 
         } else {
@@ -416,7 +445,7 @@ function delbTn() {// 개별삭제 버튼 함수
   }
 }
 
-function cartOrderClear() { //장바구니 닫을떄 주문상품List 모두제거
+function cartOrderClear() { //장바구니 닫을떄 주문상품List 모두제거 ( 이 함수가 없으면 없어지지 않고 계속 추가됨)
   console.log('cartOrderClear');
   const myOrderList = document.querySelectorAll('.myOrderList');
   for (let i = 0; i < myOrderList.length; i++) {
