@@ -1,4 +1,4 @@
-#paymentWrap{
+#paymentCardWrap{
     width: 900px;
     height: 621px;
     background: rgba(0, 0, 0, 0.46);
@@ -8,7 +8,7 @@
     top: -621px;
     left: 0px;
 }
-#paymentContent{
+#paymentCardContent{
     width: 700px;
     height: 600px;
     background: #fff200;
@@ -18,13 +18,13 @@
     transform: translate(-50%,-50%);
    
 }
-#paymentContent-1{
+#paymentCardContent-1{
     width: 700px;
     height: 243px;
     
     overflow: hidden;
 }
-#paymentIng{
+#paymentCardIng{
     display: block;
     font-size: 25px;
     font-weight: bold;
@@ -66,5 +66,15 @@
 }
 #confirmPrice{
     margin-left: 50px;
-    color:tomato;
+    color:rgb(255, 255, 255);
+}
+#submit{
+    text-align: center;
+    background: tomato;
+    width: 200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-weight: bold;
+    font-size: 31px;
+    cursor: pointer;
 }

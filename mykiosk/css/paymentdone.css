@@ -1,8 +1,10 @@
 #paymentWrap{
-    width: 856px;
-    height: 767px;
-    background: rgba(0, 0, 0, 0.123);
+    width: 900px;
+    height: 621px;
+    background: rgba(0, 0, 0, 0.52);
     position: relative;
+    top: 0;
+    left: 0;
 }
 #paymentContent{
     width: 700px;

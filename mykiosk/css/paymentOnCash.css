@@ -1,10 +1,10 @@
-#paymentWrap{
-    width: 856px;
-    height: 767px;
+#paymentCashWrap{
+    width: 900px;
+    height: 621px;
     background: rgba(0, 0, 0, 0.123);
     position: relative;
 }
-#paymentContent{
+#paymentCashContent{
     width: 700px;
     height: 600px;
     background: #fff200;
@@ -14,13 +14,13 @@
     transform: translate(-50%,-50%);
    
 }
-#paymentContent-1{
+#paymentCashContent-1{
     width: 700px;
     height: 321px;
     
     overflow: hidden;
 }
-#paymentIng{
+#paymentCashIng{
     display: block;
     font-size: 25px;
     font-weight: bold;
@@ -36,9 +36,9 @@
 }
 #cashIcon{
     margin-top: 97px;
-    margin-left: 40px;
+    margin-left: 31px;
 }
-#confirm{
+#Cashconfirm{
     display: block;
     font-size: 25px;
     font-weight: bold;
@@ -46,11 +46,11 @@
     margin-left: 242px;
     margin-top: 34px;
 }
-#confirmBtn{
+#CashConfirmBtn{
     width: 430px;
-    height: 125px;
+    height: 90px;
     background: #00a0e9;
-    line-height: 125px;
+    line-height: 90px;
    
     color:#ffffff;
     font-size: 33px;
@@ -63,4 +63,15 @@
 #confirmPrice{
     margin-left: 50px;
     color:tomato;
+}
+
+#Cashsubmit{
+    text-align: center;
+    background: tomato;
+    width: 200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-weight: bold;
+    font-size: 31px;
+    cursor: pointer;
 }

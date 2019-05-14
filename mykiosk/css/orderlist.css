@@ -276,4 +276,12 @@ body{
 }
 #paymentCash{
     position: absolute;
+    top: 140px;
+    left: 0;
+    z-index: 1231231;
+}
+#paymentDone{
+    position: absolute;
+    top:140px;
+    left: 0;
 }

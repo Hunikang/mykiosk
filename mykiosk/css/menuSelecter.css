@@ -57,11 +57,10 @@
     text-align: center;
 }
 .menuBtn{
-    padding: 23px 5px;
+    padding: 23px 13px;
     margin: 7px;
-  
     float: left;
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: bold;
     color: white;
     border-radius: 10px;

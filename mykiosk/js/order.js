@@ -397,7 +397,7 @@ function creBTn() { // 장바구니 상품목록 생성하는 함수
 
   const li = `<li class="myOrderList dontclose">
         <img class='myOrderListImg dontclose' src='#'> 
-        <div class="orderCancelBtn dontclose" >누르면삭제</div>
+        <div class="orderCancelBtn dontclose" style="background:url('./img/XIcon.png')"></div>
         <span class='myOrderListSub dontclose'></span>
     </li>`;
 
@@ -459,7 +459,8 @@ const paymentCardOpen={
   cardBtn:document.querySelector('#cardBtn'),
   paymentCard:document.querySelector('#paymentCard'),
   confirmPrice:document.querySelector('#confirmPrice'),
-  isCardOpen:false,
+ isCardOpen:true,
+  
 
   Ajax: function (callback) { // 메뉴 오픈 AJAX 함수
     var xhr = new XMLHttpRequest();
@@ -475,33 +476,174 @@ const paymentCardOpen={
     paymentCardOpen.Ajax(function(data){
       let priceEnd=0;
       paymentCard.insertAdjacentHTML('beforeend',data);
+      
       console.log('createMenu 생성됨');
-      confirmPrice.innerHTML=priceEnd;
+      paymentCardOpen.isCardOpen=false;
+      paymentCardOpen.offClick();
+      paymentCardOpen.submit();
       if(orderList.length>0){
         for(let i=0; i<orderList.length; i++){
           priceEnd+=orderList[i].price;
           console.log(priceEnd);
-          confirmPrice.innerHTML=priceEnd;
+          confirmPrice.innerHTML='총'+priceEnd+'원 입니다.';
+          
         }
       }else{
         confirmPrice.innerHTML='주문이 0 개 입니다';
       }
 
     });
+
   },
   onClick:function(){
-    cardBtn.addEventListener('click',function(){
-      if(!isCardOpen){
+    this.cardBtn.addEventListener('click',function(){
+      if(paymentCardOpen.isCardOpen){
         paymentCardOpen.createMenu();
-        this.isCardOpen=true;
+        
+        console.log('페이먼트카드 생성됨');
+        
       }
-      console.log('페이먼트카드 생성됨');
+      
 
     });
   },
   offClick:function(){
+    const homeIcon =document.querySelector('#homeIcon');
     
+    homeIcon.addEventListener('click',function(){
+      if(!paymentCardOpen.isCardOpen){
+        console.log('paymentWrap삭제!');
+        paymentCardOpen.removeOn();
+        paymentCardOpen.isCardOpen=true;
+      }else{
+        console.log('paymentWrap 삭제실패!');
+      }
+    });
+    
+  },
+  removeOn:function(){
+    const paymentWrap = document.querySelector('#paymentCardWrap');
+    paymentWrap.remove();
+  },
+  submit:function(){
+    const submitBTn = document.querySelector('#submit');
+    submitBTn.addEventListener('click',function(){
+      if(!paymentCardOpen.isCardOpen && (!orderList.length==0)){
+        paymentDone.createDone();
+      }else{
+        alert(' 주문내역이 없습니다 ');
+      }
+    });
   }
 };
 
 paymentCardOpen.onClick();
+
+
+
+
+
+const paymentCashOpen={
+  cashBtn:document.querySelector('#cashBtn'),
+  paymentCash:document.querySelector('#paymentcash'),
+  // confirmPrice2:document.querySelector('#CashConfirmPrice'),
+ isCashOpen:true,
+  
+
+  Ajax: function (callback) { // 메뉴 오픈 AJAX 함수
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'paymentOnCash.html', true);
+    xhr.onreadystatechange = function () {
+      if (xhr.status == 200 && xhr.readyState == 4) {
+        callback(xhr.response);
+      }
+    }
+    xhr.send();
+  },
+  createMenu:function(){
+    paymentCashOpen.Ajax(function(data){
+      let priceEnd=0;
+      paymentCash.insertAdjacentHTML('beforeend',data);
+      var confirmPrice2=document.querySelector('#CashConfirmPrice');
+      console.log('paymentOnCash 생성됨');
+      paymentCashOpen.isCashOpen=false;
+      paymentCashOpen.offClick();
+      paymentCashOpen.submit();
+      if(orderList.length>0){
+        for(let i=0; i<orderList.length; i++){
+          priceEnd+=orderList[i].price;
+          console.log(priceEnd);
+          confirmPrice2.innerHTML=`총 가격은 ${priceEnd}`;
+        }
+      }else{
+        confirmPrice2.innerHTML=`주문내역이 0 개 입니다.`;
+      }
+
+    });
+
+  },
+  onClick:function(){
+    this.cashBtn.addEventListener('click',function(){
+      if(paymentCashOpen.isCashOpen){
+        paymentCashOpen.createMenu('paymentCardWrap');
+        
+        console.log('페이먼트캐시 생성됨');
+        
+      }
+      
+
+    });
+  },
+  offClick:function(){
+    const homeIcon =document.querySelector('#homeIcon');
+    
+    homeIcon.addEventListener('click',function(){
+      if(!paymentCashOpen.isCashOpen){
+        console.log('paymentWrap삭제!');
+        paymentCashOpen.removeOn();
+        paymentCashOpen.isCashOpen=true;
+      }else{
+        console.log('paymentWrap 삭제실패!');
+      }
+    });
+    
+  },
+  removeOn:function(){
+    const paymentCashWrap = document.querySelector('#paymentCashWrap');
+    paymentCashWrap.remove();
+  },
+  submit:function(){
+    const submitBTn = document.querySelector('#Cashsubmit');
+    submitBTn.addEventListener('click',function(){
+      if(!paymentCashOpen.isCashOpen && (!orderList.length==0)){
+        paymentDone.createDone('#paymentCashWrap');
+      }else{
+        alert(' 주문내역이 없습니다 ');
+      }
+    });
+  }
+};
+
+paymentCashOpen.onClick();
+
+
+paymentDone={
+  Ajax:function(callback){
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'paymentdone.html', true);
+    xhr.onreadystatechange = function () {
+      if (xhr.status == 200 && xhr.readyState == 4) {
+        callback(xhr.response);
+      }
+    }
+    xhr.send();
+  },
+  createDone:function(id){
+    this.Ajax(function(data){
+      const abc = document.querySelector(id);
+      abc.remove();
+      const paymentDoneWrap = document.querySelector('#paymentDone');
+      paymentDoneWrap.insertAdjacentHTML('beforeend',data);
+    });
+  }
+}
