@@ -271,6 +271,9 @@ body{
 }
 
 
-.paymentCardWrap{
-    
+#paymentCard{
+    position: absolute;
+}
+#paymentCash{
+    position: absolute;
 }

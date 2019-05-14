@@ -452,3 +452,56 @@ function cartOrderClear() { //장바구니 닫을떄 주문상품List 모두제�
     myOrderList[i].remove();
   }
 }
+
+
+
+const paymentCardOpen={
+  cardBtn:document.querySelector('#cardBtn'),
+  paymentCard:document.querySelector('#paymentCard'),
+  confirmPrice:document.querySelector('#confirmPrice'),
+  isCardOpen:false,
+
+  Ajax: function (callback) { // 메뉴 오픈 AJAX 함수
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'paymentOnCard.html', true);
+    xhr.onreadystatechange = function () {
+      if (xhr.status == 200 && xhr.readyState == 4) {
+        callback(xhr.response);
+      }
+    }
+    xhr.send();
+  },
+  createMenu:function(){
+    paymentCardOpen.Ajax(function(data){
+      let priceEnd=0;
+      paymentCard.insertAdjacentHTML('beforeend',data);
+      console.log('createMenu 생성됨');
+      confirmPrice.innerHTML=priceEnd;
+      if(orderList.length>0){
+        for(let i=0; i<orderList.length; i++){
+          priceEnd+=orderList[i].price;
+          console.log(priceEnd);
+          confirmPrice.innerHTML=priceEnd;
+        }
+      }else{
+        confirmPrice.innerHTML='주문이 0 개 입니다';
+      }
+
+    });
+  },
+  onClick:function(){
+    cardBtn.addEventListener('click',function(){
+      if(!isCardOpen){
+        paymentCardOpen.createMenu();
+        this.isCardOpen=true;
+      }
+      console.log('페이먼트카드 생성됨');
+
+    });
+  },
+  offClick:function(){
+    
+  }
+};
+
+paymentCardOpen.onClick();
