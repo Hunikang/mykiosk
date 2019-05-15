@@ -529,7 +529,8 @@ const paymentCardOpen={
     const submitBTn = document.querySelector('#submit');
     submitBTn.addEventListener('click',function(){
       if(!paymentCardOpen.isCardOpen && (!orderList.length==0)){
-        paymentDone.createDone();
+        paymentDone.createDone('#paymentCardWrap');
+        paymentCardOpen.isCardOpen=true;
       }else{
         alert(' 주문내역이 없습니다 ');
       }
@@ -617,6 +618,7 @@ const paymentCashOpen={
     submitBTn.addEventListener('click',function(){
       if(!paymentCashOpen.isCashOpen && (!orderList.length==0)){
         paymentDone.createDone('#paymentCashWrap');
+        paymentCashOpen.isCashOpen=true;
       }else{
         alert(' 주문내역이 없습니다 ');
       }
@@ -640,10 +642,14 @@ paymentDone={
   },
   createDone:function(id){
     this.Ajax(function(data){
+      alert(id);
       const abc = document.querySelector(id);
       abc.remove();
       const paymentDoneWrap = document.querySelector('#paymentDone');
       paymentDoneWrap.insertAdjacentHTML('beforeend',data);
+      console.log(' 결제완료창 on');
+      paymentCashOpen.isCashOpen=false;
+      paymentCardOpen.isCardOpen=false;
     });
   }
 }

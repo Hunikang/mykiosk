@@ -1,4 +1,4 @@
-#paymentWrap{
+#paymentDoneWrap{
     width: 900px;
     height: 621px;
     background: rgba(0, 0, 0, 0.52);
@@ -6,7 +6,7 @@
     top: 0;
     left: 0;
 }
-#paymentContent{
+#paymentDoneContent{
     width: 700px;
     height: 600px;
     background: #fff200;
