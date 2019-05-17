@@ -21,87 +21,74 @@
 
     },
     "drink4":{
-        "name":"",
-        "price":,
-        "img":"",
-        "lyrics":""
+        "name":"레몬티",
+        "price":3500,
+        "img":"./img/레몬티.png",
+        "lyrics":"레몬 과육이 듬뿍! 더욱 상큼하게 즐기는 레몬티"
 
     },
     "drink5":{
-        "name":"",
-        "price":,
-        "img":"",
-        "lyrics":""
+        "name":"배에이드",
+        "price":3500,
+        "img":"./img/배에이드.png",
+        "lyrics":"달콤함과 청량감이 살아있는 배에이드!"
 
     },
     "drink6":{
-        "name":"",
-        "price":,
-        "img":"",
-        "lyrics":""
+        "name":"복숭아에이드",
+        "price":4000,
+        "img":"./img/복숭아에이드.png",
+        "lyrics":"듬뿍 들어간 복숭아 과육으로 풍부한맛 과 식감을 더한 청량감 가득, 복숭아에이드"
 
     },
     "drink7":{
-        "name":"",
-        "price":,
-        "img":"",
-        "lyrics":""
+        "name":"블루캔디소다",
+        "price":3000,
+        "img":"./img/블루캔디소다.png",
+        "lyrics":"추억이 새록새록! 달콤하고 부드러운 소다맛 아이스 음료"
 
     },
     "drink8":{
-        "name":"",
-        "price":,
-        "img":"",
-        "lyrics":""
+        "name":"아이스미초",
+        "price":2500,
+        "img":"./img/아이스미초.png",
+        "lyrics":"과일 발효초인 미초를 넣은 시원한 음료"
 
     },
     "drink9":{
-        "name":"",
-        "price":,
-        "img":"",
-        "lyrics":""
+        "name":"자두에이드",
+        "price":4000,
+        "img":"./img/자두에이드.png",
+        "lyrics":"듬뿍 들어간 자두 과육으로 풍부한맛과 식감을 더한 청량감 가득, 자두에이드"
 
     },
     "drink10":{
-        "name":"",
-        "price":,
-        "img":"",
-        "lyrics":""
+        "name":"자몽티",
+        "price":3500,
+        "img":"./img/자몽티.png",
+        "lyrics":"자몽과육이 입안에서 톡톡! 달콤한 자몽 한잔"
 
     },
     "drink11":{
-        "name":"",
-        "price":,
-        "img":"",
-        "lyrics":""
+        "name":"청포도에이드",
+        "price":4000,
+        "img":"./img/청포도에이드.png",
+        "lyrics":"청포도의 상큼함과 향긋한 꽃향기가 퍼지는 상큼 달콤한 에이드 음료"
 
     },
     "drink12":{
-        "name":"",
-        "price":,
-        "img":"",
-        "lyrics":""
+        "name":"청포도플라워",
+        "price":3500,
+        "img":"./img/청포도플라워.png",
+        "lyrics":"향긋한 꽃향기가 퍼지는 상큼달콤한 청포도음료"
 
     },
     "drink13":{
-        "name":"",
-        "price":,
-        "img":"",
-        "lyrics":""
+        "name":"피차우롱티",
+        "price":2500,
+        "img":"./img/피치우롱티.png",
+        "lyrics":"러블리한 피치향이 터지는 피치우롱티"
 
-    },
-    "drink14":{
-        "name":"",
-        "price":,
-        "img":"",
-        "lyrics":""
+    }
 
-    },
-    "drink15":{
-        "name":"",
-        "price":,
-        "img":"",
-        "lyrics":""
-
-    },
 }

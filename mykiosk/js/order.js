@@ -14,6 +14,8 @@
 
 var orderList = [] // 주문이 담기는 배열 선언
 var g_coffee; // 커피 json 저장하는 변수
+var g_drink;
+var g_dessert;
 
 
 const Product = {
@@ -70,6 +72,7 @@ function initProduct() { //상품목록 업데이트
   const coffeeImgBox = "<img class='coffeeImg'src='#'>" // 커피이미지
   const coffeeNameBox = "<span class='coffeeName'></span>"; // 커피이름
   const coffeePriceBox = "<span class='coffeePrice'><span>원</span></span>"; //커피가격
+
 
   for (let i = 0; i < productLength.length; i++) {
     productLength[i].insertAdjacentHTML('beforeend', coffeeImgBox); //이미지
@@ -652,4 +655,121 @@ paymentDone={
       paymentCardOpen.isCardOpen=false;
     });
   }
+};
+
+
+function loadJson2(callback) { //에이젝스
+
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'drinkData.json', true);
+
+  xhr.onreadystatechange = function () {
+    if (xhr.status == 200 && xhr.readyState == 4) {
+      callback(xhr.response);
+    }
+  }
+  xhr.send();
 }
+
+
+function initProduct2() { //상품목록 업데이트
+  const template = `<div class='coffeeMenu'></div>`
+
+ 
+  const productLength = document.querySelectorAll('.coffeeMenu'); //coffeeMenu 총 길이
+  const coffeeImgBox = "<img class='coffeeImg'src='#'>" // 커피이미지
+  const coffeeNameBox = "<span class='coffeeName'></span>"; // 커피이름
+  const coffeePriceBox = "<span class='coffeePrice'><span>원</span></span>"; //커피가격
+  
+ 
+  for (let i = 0; i < productLength.length; i++) {
+    productLength[i].insertAdjacentHTML('beforeend', coffeeImgBox); //이미지
+    productLength[i].insertAdjacentHTML('beforeend', coffeeNameBox); // 이름
+    productLength[i].insertAdjacentHTML('beforeend', coffeePriceBox) // 가격
+  }
+
+  const coffeeImg = document.querySelectorAll('.coffeeImg');
+  const coffeeName = document.querySelectorAll('.coffeeName');
+  const coffeePrice = document.querySelectorAll('.coffeePrice');
+
+
+  loadJson2(function (data) {
+    g_coffee = JSON.parse(data);
+    let cnt = 0;
+
+    for (let i in g_coffee) { // (이미지주소 , 이름 , 가격 가져오기 ) ( coffeeMenu 의 아이디를 CoffeeData의 name 키값으로함)
+
+      coffeeImg[cnt].src = g_coffee[i].img;
+      coffeeName[cnt].innerHTML = g_coffee[i].name;
+      coffeePrice[cnt].innerHTML = g_coffee[i].price;
+      productLength[cnt].id = i;
+      cnt++;
+
+    }
+
+
+  });
+
+
+}
+
+function abc(){
+  const productLength = document.querySelectorAll('.coffeeMenu'); //coffeeMenu 총 길이
+   
+    for(let i=0; i<productLength.length; i++){
+      productLength[i].remove();
+    }
+  
+}
+
+function initAllProduct(jsonSrc,what){
+  
+  function loadJson(callback) { //에이젝스
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', jsonSrc, true);
+  
+    xhr.onreadystatechange = function () {
+      if (xhr.status == 200 && xhr.readyState == 4) {
+        callback(xhr.response,jsonSrc);
+      }
+    }
+    xhr.send();
+  }
+
+  loadJson(function (data) {
+    console.log(jsonSrc);
+    // if(data=='coffeeData.json'){
+    //   g_coffee = JSON.parse(data);
+    //   console.log('커피등록완료');
+    // }else if(data=='drinkData.json'){
+    //   g_drink = JSON.parse(data);
+    //   console.log('음료등록완료');
+    // }else if(data == 'dessert.json'){
+    //   g_dessert = JSON.parse(data);
+    //   console.log('디저트등록완료');
+    // }else{
+    //   console.log('잘못된 접근 입니다');
+    // };
+  });
+
+  
+}
+initAllProduct('coffeeData.json','coffeeData.json');
+
+
+  //   g_coffee = JSON.parse(data);
+  //   let cnt = 0;
+
+  //   for (let i in g_coffee) { // (이미지주소 , 이름 , 가격 가져오기 ) ( coffeeMenu 의 아이디를 CoffeeData의 name 키값으로함)
+
+  //     coffeeImg[cnt].src = g_coffee[i].img;
+  //     coffeeName[cnt].innerHTML = g_coffee[i].name;
+  //     coffeePrice[cnt].innerHTML = g_coffee[i].price;
+  //     productLength[cnt].id = i;
+  //     cnt++;
+
+  //   }
+
+
+  // });
