@@ -722,7 +722,7 @@ function abc(){
   
 }
 
-function initAllProduct(jsonSrc,what){
+function initAllProduct(jsonSrc){
   
   function loadJson(callback) { //에이젝스
 
@@ -731,31 +731,40 @@ function initAllProduct(jsonSrc,what){
   
     xhr.onreadystatechange = function () {
       if (xhr.status == 200 && xhr.readyState == 4) {
-        callback(xhr.response,jsonSrc);
+        callback(xhr.response,xhr.responseURL);
+         
+        
       }
     }
     xhr.send();
   }
 
-  loadJson(function (data) {
-    console.log(jsonSrc);
-    // if(data=='coffeeData.json'){
-    //   g_coffee = JSON.parse(data);
-    //   console.log('커피등록완료');
-    // }else if(data=='drinkData.json'){
-    //   g_drink = JSON.parse(data);
-    //   console.log('음료등록완료');
-    // }else if(data == 'dessert.json'){
-    //   g_dessert = JSON.parse(data);
-    //   console.log('디저트등록완료');
-    // }else{
-    //   console.log('잘못된 접근 입니다');
-    // };
+  loadJson(function (data,url) {
+    console.log(url.indexOf('CoffeeData.json'));
+    console.log(url.indexOf('dessert.json'));
+    console.log(url.indexOf('drinkData.json'));
+    console.log(url);
+   
+    if(url.indexOf('CoffeeData.json')!=-1){
+      g_coffee = JSON.parse(data);
+      console.log('커피데이터 등록 완료');
+    }else if(url.indexOf('dessert.json')!=-1){
+      g_drink = JSON.parse(data);
+      console.log('디저트등록완료');
+    }else if(url.indexOf('drinkData.json')!=-1){
+      g_dessert = JSON.parse(data);
+      console.log('음료등록완료');
+    }else{
+      console.log('잘못된 접근 입니다');
+    }
+
   });
 
   
 }
-initAllProduct('coffeeData.json','coffeeData.json');
+initAllProduct('CoffeeData.json');
+initAllProduct('dessert.json');
+initAllProduct('drinkData.json');
 
 
   //   g_coffee = JSON.parse(data);
