@@ -400,7 +400,7 @@ function creBTn() { // 장바구니 상품목록 생성하는 함수
 
   const li = `<li class="myOrderList dontclose">
         <img class='myOrderListImg dontclose' src='#'> 
-        <div class="orderCancelBtn dontclose" style="background:url('./img/XIcon.png')"></div>
+        <div class="orderCancelBtn dontclose" ></div>
         <span class='myOrderListSub dontclose'></span>
     </li>`;
 

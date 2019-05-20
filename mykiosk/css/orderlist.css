@@ -60,10 +60,11 @@ body{
     margin: 0 23px;
 }
 .headerBtn span{
-    color: white;
+    /* color: white; */
     font-size: 72px;
     font-family: human;
     line-height: 117px;
+    cursor: pointer;
     
 }
 #EaWrap{
@@ -182,7 +183,7 @@ body{
 }
 .coffeeName{
     display: block;
-    font: 2em bold;
+    font: 1.7em bold;
 }
 .coffeePrice{
     display: block;
@@ -225,7 +226,7 @@ body{
 #options{
     position: absolute;
     top: 0;
-    left: 325px;
+    left: 250px;    
 }
 #CoffeeCart{
     width: 200px;
@@ -235,6 +236,7 @@ body{
     top: 0;
     z-index: 1000;
     left: 900px;
+    
     transition: all .3s;
 }
 #CoffeeCartTop{
@@ -255,15 +257,26 @@ body{
     color:white;
     
 }
+.orderCancelBtn{
+ 
+}
 .myOrderListImg{
     width: 50%;
     margin-left: 47px;
 }
 .myOrderListSub{
     font-weight: bold;
+    display: block;
+    text-align: center;
 }
 .orderCancelBtn{
     text-align: center;
+    background: url(../img/xIcon.png);
+    background-size: 101%;
+    width: 30px;
+    height: 30px;
+    /* position: absolute; */
+    float: right;
 }
 .orderCancelBtnimg{
     width: 12%;

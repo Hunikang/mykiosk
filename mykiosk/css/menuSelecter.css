@@ -25,7 +25,14 @@
     display: block;
     float: left;
     font-size: 2em;
-    margin-top: 137px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+#menuSelecterSubscript{
+    position: absolute;
+    top: 130px;
+    left: 254px;
+    width: 313px;
     font-weight: bold;
 }
 #menuSelecter{
