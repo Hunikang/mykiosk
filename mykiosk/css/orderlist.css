@@ -216,12 +216,15 @@ body{
     display: inline;
 }
 #Osyrup{
-    background: darkolivegreen;
-}
-#Oshot{
     background: yellow;
     color: black;
     border: 1px solid black;
+}
+#Oshot{
+    background: #92c833;
+    
+    
+    
 }
 #options{
     position: absolute;
@@ -301,17 +304,20 @@ body{
 }
 
 #adminWindow{
-    width: 500px;
-    height: 500px;
+    width: 900px;
+    height: 901px;
     position: absolute;
-    background: tan;
-    top:0;
-    left:0;
-    display: none;
+    background: rgba(0, 0, 0, 0.76);
+    left: 50%;
+    z-index: 99999;
+    top:-100%;
+    transform: translateX(-50%);
+    transition: all .3s;
+    color:white;
 }
 #systemBtn{
     position: absolute;
-    /* float: right; */
+    z-index: 99999;
     top: 10px;
     left: 831px;
     width: 5%;
@@ -320,4 +326,27 @@ body{
 }
 #systemBtn:hover{
     transform: rotate(100deg);
+}
+#adminContents{
+    position: relative;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 800px;
+    
+    height: 800px;
+}
+#adminSub{
+    text-align: center;
+    font-size: 3em;
+}
+#orderListUl{
+    margin-left: 15px;
+    font-weight: bold;
+}
+.orderSub{
+    font-size: 2em; 
+}
+.orderListli{
+    margin: 10px;
 }

@@ -302,6 +302,7 @@ function MenuProcess(coffeeId) {
   const syrupBtn = document.querySelector('#syrupBtn');
   const iceIcon = document.querySelector('#Oice');
   const hotIcon = document.querySelector('#Ohot');
+  const menuSelecter = document.querySelector('#menuSelecter');
 
   const menuSelecterSubscript = document.querySelector('#menuSelecterSubscript'); //상품설병
   let priceDefalut; //추가옵션이 없을때 기본가격
@@ -328,6 +329,13 @@ function MenuProcess(coffeeId) {
     coffeeName.innerHTML = g_drink[coffeeId].name;
     priceDefalut = g_drink[coffeeId].price;
     menuSelecterSubscript.innerHTML = g_drink[coffeeId].lyrics;
+    iceIcon.style.display='none';
+    hotIcon.style.display='none';
+    iceBtn.style.display='none';
+    hotBtn.style.display='none';
+    shotBtn.style.display='none';
+    syrupBtn.style.display='none';
+    menuSelecter.innerHTML='<div id="noMoreOp"> 선택 가능한 옵션이 없습니다 !</div>';
 
 
   } else if (coffeeId.indexOf('dessert') == 0) {
@@ -338,6 +346,13 @@ function MenuProcess(coffeeId) {
     coffeeName.innerHTML = g_dessert[coffeeId].name;
     priceDefalut = g_dessert[coffeeId].price;
     menuSelecterSubscript.innerHTML = g_dessert[coffeeId].lyrics;
+    iceIcon.style.display='none';
+    hotIcon.style.display='none';
+    iceBtn.style.display='none';
+    hotBtn.style.display='none';
+    shotBtn.style.display='none';
+    syrupBtn.style.display='none';
+    menuSelecter.innerHTML='<div id="noMoreOp"> 선택 가능한 옵션이 없습니다 !</div>';
 
   } else {
     console.log(' 잘못 된 접근입니다.');
@@ -796,8 +811,58 @@ paymentDone = {
 
 function system(){
   const systemBtn = document.querySelector('#systemBtn');
+  const adminWindow = document.querySelector('#adminWindow');
+  let isOpen = false;
   systemBtn.addEventListener('click',function(){
-    
+    if(!isOpen){
+      adminWindow.style.top='0%';
+      isOpen = true;
+      adminOrderList();
+    }else{
+      adminWindow.style.top='-100%';
+      isOpen = false;
+      adminOrderListClear();
+    }
   });
 }
 system();
+
+
+function adminOrderList(){
+  const orderlistUl = document.querySelector('#orderlistUl');
+  const template = `<li class="orderListli">
+    <span class="orderSub">1</span>
+    <span class="orderOp1">2</span>
+    <span class="orderOp2">3</span>
+    <span class="orderOp3">4</span>
+    <span class="orderPrice">5</span>
+  </li>`;
+  for(let i = 0; i<orderList.length; i++){
+    orderlistUl.insertAdjacentHTML('beforeend',template);
+    const orderSub = document.querySelectorAll('.orderSub');
+    const orderOp1 = document.querySelectorAll('.orderOp1');
+    const orderOp2 = document.querySelectorAll('.orderOp2');
+    const orderOp3 = document.querySelectorAll('.orderOp3');
+    const orderPrice = document.querySelectorAll('.orderPrice');
+    const isHot = function(){
+      if(orderList[i].option["hot"]){
+        return 'HOT';
+      }else{
+        return 'ICE';
+      }
+    };
+    orderSub[i].innerHTML = orderList[i].name;
+    orderOp1[i].innerHTML = isHot();
+    orderOp2[i].innerHTML = '시럽추가: ' + orderList[i].option["syrup"] + '번';
+    orderOp3[i].innerHTML = '샷추가: ' + orderList[i].option["shot"] + '번';
+    orderPrice[i].innerHTML = orderList[i].price + '원';
+    
+  }
+}
+
+function adminOrderListClear(){
+  const orderListli = document.querySelectorAll('.orderListli');
+  for(let i=0; i<orderList.length; i++){
+    orderListli[i].remove();
+  }
+}

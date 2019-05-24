@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Examples</title>
+    <title>KIOSK</title>
     <meta name='viewport'
         content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' />
     <meta name="description" content="">
@@ -48,8 +48,14 @@
 
 
 <body onselectstart="return false">
-        
+        <div id="adminWindow">
+            <div id="adminContents">
+                <div id="adminSub"><h1>Barista Menu</h1></div>
+                <ul id="orderlistUl"></ul>
+            </div>
+        </div>
     <div id="mainWrap">
+            
             <img id="systemBtn"src="./img/system.png">
         <div id="header">
             <img id="headerPrev" class="swiper-button-prev" src="img/orderlistAL.png">
@@ -96,7 +102,7 @@
         <div id="paymentCard"></div>
         <div id="paymentCash"></div>
         <div id="paymentDone"></div>
-        <div id="adminWindow"></div>
+        
         <div id="footer">
             <span id="EaWrap">
                 <span id="EA">0</span>
