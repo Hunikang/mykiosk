@@ -645,7 +645,7 @@ paymentDone={
   },
   createDone:function(id){
     this.Ajax(function(data){
-      alert(id);
+      // alert(id);
       const abc = document.querySelector(id);
       abc.remove();
       const paymentDoneWrap = document.querySelector('#paymentDone');
