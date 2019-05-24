@@ -310,7 +310,7 @@ body{
     background: rgba(0, 0, 0, 0.76);
     left: 50%;
     z-index: 99999;
-    top:-100%;
+    opacity: 0;
     transform: translateX(-50%);
     transition: all .3s;
     color:white;
