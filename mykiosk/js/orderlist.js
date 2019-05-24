@@ -68,7 +68,7 @@ function BtnEvent() { //버튼 누를때 애니메이션
   });
 
 }
-
+BtnEvent();
 function initAllProduct(jsonSrc) { // 상품데이터 불러오기
 
   function loadJson(callback) { //에이젝스
