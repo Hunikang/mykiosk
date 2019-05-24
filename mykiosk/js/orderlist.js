@@ -8,8 +8,8 @@
 
 var orderList = [] // 주문이 담기는 배열 선언
 var g_coffee; // 커피 json 저장하는 변수
-var g_drink;
-var g_dessert;
+var g_drink; // 음료 저장하는 변수
+var g_dessert; // 디저트 저장
 
 
 const Product = {
@@ -52,7 +52,7 @@ function BtnEvent() { //버튼 누를때 애니메이션
 
   prevBtn.addEventListener('click', function () {
 
-    prevBtn.style.transform = "scale(0.9)";
+    prevBtn.style.transform = "scale(0.9)";  // 클릭하면 작아졌다가 0.1초뒤 다시커짐
     setTimeout(function () {
       prevBtn.style.transform = "scale(1)";
     }, 100);
@@ -60,7 +60,7 @@ function BtnEvent() { //버튼 누를때 애니메이션
   });
   NextBtn.addEventListener('click', function () {
 
-    NextBtn.style.transform = "scale(0.9)";
+    NextBtn.style.transform = "scale(0.9)"; // 클릭하면 작아졌다가 0.1초뒤 다시커짐
     setTimeout(function () {
       NextBtn.style.transform = "scale(1)";
     }, 100);
@@ -86,9 +86,9 @@ function initAllProduct(jsonSrc) { // 상품데이터 불러오기
     xhr.send();
   }
 
-  loadJson(function (data, url) {
+  loadJson(function (data, url) { // 불러온 데이터가 어떤 데이터인지 확인
 
-    if (url.indexOf('CoffeeData.json') != -1) {
+    if (url.indexOf('CoffeeData.json') != -1) { //데이터 검증후 json 을 객체로 만든뒤 해당 변수에 저장
       g_coffee = JSON.parse(data);
       console.log('커피데이터 등록 완료');
 
@@ -114,10 +114,11 @@ function initAllProduct(jsonSrc) { // 상품데이터 불러오기
 initAllProduct('CoffeeData.json');
 initAllProduct('dessert.json');
 initAllProduct('drinkData.json');
-window.onload = function () {
-  defalutProductInit();
-  paymentCardOpen.onClick();
-  paymentCashOpen.onClick();
+
+window.onload = function () { //페이지 로드가 전부 완료되면 
+  defalutProductInit(); //상품목록 불러오는 함수
+  paymentCardOpen.onClick(); //카드결제 버튼이벤트
+  paymentCashOpen.onClick(); //현금결제 버튼 이벤트
 }
 
 
@@ -129,21 +130,22 @@ function defalutProductInit() { //상품목록 업데이트
   const coffeeImgBox = "<img class='coffeeImg'src='#'>" // 커피이미지
   const coffeeNameBox = "<span class='coffeeName'></span>"; // 커피이름
   const coffeePriceBox = "<span class='coffeePrice'><span>원</span></span>"; //커피가격
-  const coffeeBtn = document.querySelector('#coffeeBtn');
-  const dessertBtn = document.querySelector('#dessertBtn');
-  const drinkBtn = document.querySelector('#drinkBtn');
+  const coffeeBtn = document.querySelector('#coffeeBtn'); //커피로 메뉴 바꾸는 버튼
+  const dessertBtn = document.querySelector('#dessertBtn');//디저트로 메뉴 바꾸는 버튼
+  const drinkBtn = document.querySelector('#drinkBtn');//음료로 메뉴 바꾸는 버튼
 
-  for (let i = 0; i < productLength.length; i++) {
+  for (let i = 0; i < productLength.length; i++) { //coffeeMenu Div 만큼 반복문을 돌아서 템플릿을 입력
     productLength[i].insertAdjacentHTML('beforeend', coffeeImgBox); //이미지
     productLength[i].insertAdjacentHTML('beforeend', coffeeNameBox); // 이름
-    productLength[i].insertAdjacentHTML('beforeend', coffeePriceBox) // 가격
+    productLength[i].insertAdjacentHTML('beforeend', coffeePriceBox); // 가격
   }
 
-  const coffeeImg = document.querySelectorAll('.coffeeImg');
-  const coffeeName = document.querySelectorAll('.coffeeName');
-  const coffeePrice = document.querySelectorAll('.coffeePrice');
-  coffeeBtnOn();
-  mainBtnColor(2);
+  const coffeeImg = document.querySelectorAll('.coffeeImg'); //상품이미지 출력
+  const coffeeName = document.querySelectorAll('.coffeeName'); //상품이름 출력
+  const coffeePrice = document.querySelectorAll('.coffeePrice'); //상품가격출력
+
+  coffeeBtnOn(); //초기메뉴는 커피라서 커피버튼on시킨 상태로 만들기위해 함수호출
+  mainBtnColor(2); //메뉴 색상 하이라이트 하는 함수
 
   coffeeBtn.addEventListener('click', function () {
     coffeeBtnOn();
@@ -157,7 +159,8 @@ function defalutProductInit() { //상품목록 업데이트
     drinkBtnOn();
     mainBtnColor(3);
   });
-  function mainBtnColor(btn) {
+
+  function mainBtnColor(btn) {//메뉴 색상 하이라이트 하는 함수 
     const dessertBtn = document.querySelector('.dessertBtn');
     const coffeeBtn = document.querySelector('.coffeeBtn');
     const drinkBtn = document.querySelector('.drinkBtn');
@@ -184,9 +187,12 @@ function defalutProductInit() { //상품목록 업데이트
         break;
     }
   }
+
+  // 클릭시 해당하는 메뉴로 이미지,이름,가격을 바꿔주는 함수
   function coffeeBtnOn() {
 
     let cnt = 0;
+
     for (let i in g_coffee) {
 
       coffeeImg[cnt].src = g_coffee[i].img;
@@ -199,6 +205,7 @@ function defalutProductInit() { //상품목록 업데이트
   }
 
   function dessertBtnOn() {
+
     let cnt = 0;
 
     for (let i in g_dessert) {
@@ -213,6 +220,7 @@ function defalutProductInit() { //상품목록 업데이트
   }
 
   function drinkBtnOn() {
+
     let cnt = 0;
 
     for (let i in g_drink) {
@@ -237,12 +245,15 @@ function menuOn() {
 
 function Btn() { // 어느 커피 눌렀는지 알려주는 함수
   const coffeeBtn = document.querySelectorAll('.coffeeMenu');
-  for (let i = 0; i < coffeeBtn.length; i++) {
-    coffeeBtn[i].addEventListener('click', function (e) {
+  for (let i = 0; i < coffeeBtn.length; i++) { //상품길이만큼 반복문을 돌며 클릭이벤트를 건다 
+
+    coffeeBtn[i].addEventListener('click', function (e) { //상품을 클릭하면 세부메뉴 창을 연다
+
       if (!e.target.id) {
         const coffeeId = e.target.parentElement.id;
         createMenu(coffeeId);
         console.log(coffeeId);
+
       } else {
         const coffeeId = e.target.id;
         createMenu(coffeeId);
@@ -251,7 +262,8 @@ function Btn() { // 어느 커피 눌렀는지 알려주는 함수
     });
   }
 };
-function createMenu(coffeeId) {
+
+function createMenu(coffeeId) { // 상품상세창을 ajax 로 불러옴
   function Ajax(callback) {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', 'menuSelecter.html', true);
@@ -271,7 +283,9 @@ function createMenu(coffeeId) {
     const coffeeOption = document.querySelector('#coffeeOption');
     coffeeOption.insertAdjacentHTML('beforeend', data);
     MenuProcess(coffeeId);
-
+   //상품상세창의 mainWrap 에 첫번째 자식으로 coffeeOption div 를 만들고
+   //coffeeOption 에 ajax 로 불러온 html 을 넣는다.
+   //해당 상품에 맞는 데이터를 불러오기위해 MenuProcess 를 호출
   });
 
 
@@ -289,8 +303,8 @@ function MenuProcess(coffeeId) {
   const iceIcon = document.querySelector('#Oice');
   const hotIcon = document.querySelector('#Ohot');
 
-  const menuSelecterSubscript = document.querySelector('#menuSelecterSubscript');
-  let priceDefalut;
+  const menuSelecterSubscript = document.querySelector('#menuSelecterSubscript'); //상품설병
+  let priceDefalut; //추가옵션이 없을때 기본가격
   let syrupCnt = 1;
   let shotCtn = 1;
   let isIce = false;
@@ -758,7 +772,7 @@ paymentDone = {
   },
   createDone: function (id) {
     this.Ajax(function (data) {
-      alert(id);
+      // alert(id);
       const abc = document.querySelector(id);
       abc.remove();
       const paymentDoneWrap = document.querySelector('#paymentDone');
