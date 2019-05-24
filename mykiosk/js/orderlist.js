@@ -197,7 +197,7 @@ function defalutProductInit() { //상품목록 업데이트
 
       coffeeImg[cnt].src = g_coffee[i].img;
       coffeeName[cnt].innerHTML = g_coffee[i].name;
-      coffeePrice[cnt].innerHTML = g_coffee[i].price+' 원';
+      coffeePrice[cnt].innerHTML = g_coffee[i].price + ' 원';
       productLength[cnt].id = i;
       cnt++;
 
@@ -212,7 +212,7 @@ function defalutProductInit() { //상품목록 업데이트
 
       coffeeImg[cnt].src = g_dessert[i].img;
       coffeeName[cnt].innerHTML = g_dessert[i].name;
-      coffeePrice[cnt].innerHTML = g_dessert[i].price+' 원';;
+      coffeePrice[cnt].innerHTML = g_dessert[i].price + ' 원';;
       productLength[cnt].id = i;
       cnt++;
 
@@ -227,7 +227,7 @@ function defalutProductInit() { //상품목록 업데이트
 
       coffeeImg[cnt].src = g_drink[i].img;
       coffeeName[cnt].innerHTML = g_drink[i].name;
-      coffeePrice[cnt].innerHTML = g_drink[i].price+' 원';;
+      coffeePrice[cnt].innerHTML = g_drink[i].price + ' 원';;
       productLength[cnt].id = i;
       cnt++;
 
@@ -283,9 +283,9 @@ function createMenu(coffeeId) { // 상품상세창을 ajax 로 불러옴
     const coffeeOption = document.querySelector('#coffeeOption');
     coffeeOption.insertAdjacentHTML('beforeend', data);
     MenuProcess(coffeeId);
-   //상품상세창의 mainWrap 에 첫번째 자식으로 coffeeOption div 를 만들고
-   //coffeeOption 에 ajax 로 불러온 html 을 넣는다.
-   //해당 상품에 맞는 데이터를 불러오기위해 MenuProcess 를 호출
+    //상품상세창의 mainWrap 에 첫번째 자식으로 coffeeOption div 를 만들고
+    //coffeeOption 에 ajax 로 불러온 html 을 넣는다.
+    //해당 상품에 맞는 데이터를 불러오기위해 MenuProcess 를 호출
   });
 
 
@@ -421,6 +421,7 @@ function MenuProcess(coffeeId) {
       orderList.push(info);
       coffeeOption.remove();
       coffeeQy();
+      alert(" 상품이 추가되었습니다 !");
     });
   }
   menuPlus();
@@ -474,7 +475,7 @@ function CoffeeCart() { //장바구니 on off
     if (set) {
       set = false;
       CoffeeCart.style.left = '900px';
-      CoffeeCart.style.boxShadow='0';
+      CoffeeCart.style.boxShadow = '0';
       cartOrderClear(); // 장바구니 off 시 상품표시 clear 해준다 
       console.log(' 닫힘 !');
 
@@ -482,7 +483,7 @@ function CoffeeCart() { //장바구니 on off
       set = true;
       console.log(' 열림 !');
       // CoffeeCart.style.boxShadow='0px 1px 5px black';
-      
+
       CoffeeCart.style.left = '700px';
       CartSetting(); // 가격출력함수 호출
       cartOrder(); // 장바구니 기능 호출 하는 함수 호출
@@ -608,6 +609,10 @@ const paymentCardOpen = {
     xhr.send();
   },
   createMenu: function () {
+    if(document.querySelector('#paymentCashWrap')){ // 현금결제창이 열려있을시 닫음
+      paymentCashOpen.removeOn();
+      paymentCashOpen.isCashOpen = true;
+    }
     paymentCardOpen.Ajax(function (data) {
       let priceEnd = 0;
       paymentCard.insertAdjacentHTML('beforeend', data);
@@ -632,11 +637,10 @@ const paymentCardOpen = {
   },
   onClick: function () {
     this.cardBtn.addEventListener('click', function () {
+
       if (paymentCardOpen.isCardOpen) {
         paymentCardOpen.createMenu();
-
         console.log('페이먼트카드 생성됨');
-
       }
 
 
@@ -693,6 +697,10 @@ const paymentCashOpen = {
     xhr.send();
   },
   createMenu: function () {
+    if(document.querySelector('#paymentCardWrap')){ //카드 결제창이 열려있을시 닫힘
+      paymentCardOpen.removeOn();
+      paymentCardOpen.isCardOpen = true;
+    }
     paymentCashOpen.Ajax(function (data) {
       let priceEnd = 0;
       paymentCash.insertAdjacentHTML('beforeend', data);
@@ -783,3 +791,13 @@ paymentDone = {
     });
   }
 };
+
+
+
+function system(){
+  const systemBtn = document.querySelector('#systemBtn');
+  systemBtn.addEventListener('click',function(){
+    
+  });
+}
+system();

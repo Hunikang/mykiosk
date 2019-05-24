@@ -264,10 +264,11 @@ const menuOn = { // 상품 옵션 창
             'shot': shotCtn,
           }
         }
+        
         orderList.push(tmp); //orderList 에 대입
         coffeeOption.remove(); // 창닫기
         CoffeeQy(); // 전체주문수량 출력하는 함수
-
+        
       });
 
     }
@@ -289,6 +290,7 @@ const menuOn = { // 상품 옵션 창
         for (let i = 0; i < orderList.length; i++) {
           orderList.pop();
         }
+        
         CoffeeQy();
       });
 

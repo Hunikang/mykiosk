@@ -1,7 +1,7 @@
 #paymentCardWrap{
     width: 900px;
     height: 621px;
-    background: rgba(0, 0, 0, 0.46);
+    background: rgba(0, 0, 0, 0.38);
     /* position: relative; */
     position: absolute;
     z-index: 99999999;
