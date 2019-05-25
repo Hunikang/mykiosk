@@ -815,13 +815,11 @@ function system(){
   let isOpen = false;
   systemBtn.addEventListener('click',function(){
     if(!isOpen){
-      // adminWindow.style.top='0%';
-      adminWindow.style.opacity=0;
+      adminWindow.style.top='0%';
       isOpen = true;
       adminOrderList();
     }else{
-      // adminWindow.style.top='-100%';
-      adminWindow.style.opacity=100;
+      adminWindow.style.top='-100%';
       isOpen = false;
       adminOrderListClear();
     }
