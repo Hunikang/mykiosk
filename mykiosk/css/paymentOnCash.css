@@ -30,9 +30,14 @@
     float: left;
 }
 #homeIcon{
+    transform: scale(1);
+    transition: all .3s;
     float: right;
     margin-top: 14px;
     margin-right: 10px;
+}
+#homeIcon:hover{
+    transform: scale(1);
 }
 #cashIcon{
     margin-top: 97px;

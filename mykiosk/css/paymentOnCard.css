@@ -3,9 +3,10 @@
     height: 770px;
     background: rgba(0, 0, 0, 0.38);
     /* position: relative; */
-    position: absolute;
+    /* position: absolute; */
     z-index: 99999999;
-    top: -631px;
+    /* top: -631px; */
+    top: 0;
     left: 0px;
 }
 #paymentCardContent{
@@ -37,6 +38,11 @@
     float: right;
     margin-top: 14px;
     margin-right: 10px;
+    transform: scale(1);
+    transition: all .3s;
+}
+#homeIcon:hover{
+    transform: scale(1.1);
 }
 #cardIcon{
     margin-top: 97px;

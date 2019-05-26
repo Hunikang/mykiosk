@@ -1,401 +1,482 @@
-@font-face{
-    font-family: 'human';
-    src: url(../font/휴먼견출모음t.TTF) format('truetype');
-}
-body{
-    /* background: #efe303; */
-    background: #36D1DC;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to bottom, #5B86E5, #36D1DC);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to bottom, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-}
-#logos{
-    width: 900px;
-    height: 85px;
-    overflow: hidden;
-    background: #66a2e5;
-}
-#mainLogo{
-    width: 80px;
-    margin-left: 20px;
-    float: left;
-}
-.logosSub{
-    color: #A95C3E;
-    line-height: 106px;
-    font-size: 4em;
-    font-weight: bold;
-    line-height: -1;
-    float: left;
-    text-shadow: 1px 3px 0px brown;
-}
-#mainWrap{
-    /* margin-top: 100px; */
-    width: 900px;
-    position: relative;
-    background: #66a2e5;;
-    margin: 0 auto;
-    top: 50%;
-    transform: translateY(-47%);
- 
-}
-#header{
-    width: 900px;
-    /* height: 140px; */
-    height: 100px;
-    background: #66a2e5;
-    overflow: hidden;
-}
-#footer{
-    width: 900px;
-    height: 140px;
-    background: #66a2e5;
-
-}
-#content{
-    width: 900px;
-    /* min-height: 621px; */
-    height: auto;
-    /* background: tan; */
-    position: relative;
-    overflow: hidden;
-}
-#header img{
-    margin: 0 18px;
-    margin-top: 41px;
-    float: left;
-}
-#headerBtnWrap{
-    width: 724px;
-    height: 117px;
-    margin-top: 9px;
-    float: left;
-}
-.headerBtn{
-    width: 226px;
-    height: 80px;
-    background: #3867d6;
-    border-radius: 10px;
-    text-align: center;
-    float: left;
-}
-.headerBtn:nth-child(2){
-    margin: 0 23px;
-}
-.headerBtn span{
-    /* color: white; */
-    font-size: 4em;
-    font-family: human;
-    line-height: 80px;
-    cursor: pointer;
-    transition: all .3s;
-    
-}
-#EaWrap{
-    color: white;
-    font-size: 50px;
-    font-family: human;
-    line-height: 140px;
-    float: left;
-}
-#EA{
-    margin-left: 20px;
-}
-#systemBtnWrap{
-    width: 604px;
-    height: 122px;
-    float: right;
-    margin-top:9px;
-
-   
-}
-.systemBtn{
-    width: 122px;
-    height: 122px;
-    float: left;
-    border-radius: 10px;
-    cursor: pointer;
-    overflow: hidden;
-}
-#cartBtn{
-    background: #6749ff;
-
-    margin: 0 26px;
-}
-#cartBtn img{
-    margin-top: 18px;
+@font-face {
+  font-family: 'human';
+  src: url(../font/휴먼견출모음t.TTF) format('truetype');
 }
 
-#cancelBtn{
-    background: #d85a5a;
-    
-}
-#cashBtn{
-    background: #e67e22;
-    margin: 0 26px;
-}
-#cardBtn{
-    background: #e74c3c;
-}
-#cancelBtn span{
-    font-size: 41px;
-    padding: 20px;
-    color:rgb(255, 255, 255);
-    font-weight: bold;
-    cursor: pointer;
-    display: block;
-}
-#cashBtn img{
-    margin-top: 8px;
-    margin-left: 7px;
-}
-#cashBtn div{
-    text-align: center;
-    color:white;
-    font-size: 2em;
-    font-weight: bold;
-}
-#cardBtn img{
-    margin-top:13px;
-    margin-left: 9px;
-}
-#cardBtn div{
-    text-align: center;
-    color:white;
-    font-size: 2em;
-    font-weight: bold;
-    margin-top: 6px;
-}
-#headerPrev,#headerNext{
-    cursor: pointer;
-    transition: all 0.1s;
-    outline: none;
+@import url('https://fonts.googleapis.com/css?family=Jua&display=swap');
+
+body {
+  /* background: #efe303; */
+  background: #36D1DC;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #5B86E5, #36D1DC);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #5B86E5, #36D1DC);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
-.swiper-slide:nth-child(2){
-    background: #3867d6;
-}
-.swiper-slide:nth-child(1){
-    background: #f3816d;
-}
-.coffeeMenuRow01{
-    background: #afd0f4;    
-    width: 900px;
-    height: auto;
-    /* padding-left: 50px; */
-}
-.coffeeMenu{
-    width: 240px;
-    height: 223px;
-    transform: scale(0.9);
-    transition: all .3s;
-    overflow: hidden;
-    float: left;
-    cursor: pointer;
-    /* margin: 26px; */
-    margin: auto;
-    margin-left: 51px;
-    /* z-index: 111111111111111111; */
-}
-.coffeeMenu:hover{
-    transform: scale(1);
-    color:tomato;
-}
-.coffeeMenu:nth-child(2),.coffeeMenu:nth-child(5){
-    margin: 0 37px;
-}
-.coffeeImg{
-    /* width: 125px; */
-    height: 140px;
-    display:block;
-    margin: 0 auto;
-}
-.coffeeName{
-    display: block;
-    font: 1.7em bold;
-}
-.coffeePrice{
-    display: block;
-    font-size: 1.3em;
-}
-#coffeeOption{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    z-index: 1000;
-
-    
-}
-.isOptions{
-    padding: 5px 10px;
-    background: tan;
-    margin: 10px;
-    line-height: 150px;
-    font-size: 1.3em;
-    font-weight: bold;
-    display: none;
-    color:white;    
-}
-#Oice{
-    background: skyblue;
-}
-#Ohot{
-    background: salmon;
-    display: inline;
-}
-#Osyrup{
-    background: yellow;
-    color: black;
-    border: 1px solid black;
-}
-#Oshot{
-    background: #92c833;
-    
-    
-    
-}
-#options{
-    position: absolute;
-    top: 0;
-    left: 250px;    
-}
-#CoffeeCart{
-    width: 200px;
-    height: 770px;
-    background: #66a2e5;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    /* z-index: 1; */
-    /* left: 73.4%; */
-    left: 62.4%;
-    z-index: -1000;
-    transition: all .5s;
-}
-#CoffeeCartTop{
-    width: 100%;
-    height: 82%;
-    background: #afd0f4;
-    overflow: auto;
-    border-left: 2px solid #66a2e5;
-
-    
-}
-#CoffeeCartBot{
-    width: 100%;
-    height: 72px;
-    line-height: 5;
-    text-align: center;
-    font-size: 2em;
-    font-weight: bold;
-    color: white;
-    
-}
-.orderCancelBtn{
- 
-}
-.myOrderListImg{
-    width: 50%;
-    margin-left: 47px;
-}
-.myOrderListSub{
-    font-weight: bold;
-    display: block;
-    text-align: center;
-}
-.orderCancelBtn{
-    text-align: center;
-    background: url(../img/xIcon.png);
-    background-size: 101%;
-    width: 30px;
-    height: 30px;
-    /* position: absolute; */
-    float: right;
-}
-.orderCancelBtnimg{
-    width: 12%;
-    float: right;
+#logos {
+  width: 900px;
+  height: 85px;
+  overflow: hidden;
+  background: #66a2e5;
 }
 
-
-#paymentCard{
-    position: absolute;
-}
-#paymentCash{
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1231231;
-}
-#paymentDone{
-    position: absolute;
-    top:140px;
-    left: 0;
-    z-index: 99;
+#mainLogo {
+  width: 80px;
+  margin-left: 20px;
+  float: left;
 }
 
-#adminWindow{
-    width: 900px;
-    height: 783px;
-    position: absolute;
-    background: rgba(0, 0, 0, 0.76);
-    left: 50%;
-    z-index: 0;
-    top: 50%;
-    /* transform: translateX(-50%); */
-    transform: translate(-50%,-47%);
-    transition: all .3s;
-    color: white;
-    opacity: 0;
-    overflow: hidden;
+.logosSub {
+  color: #e7d337;
+  line-height: 106px;
+  font-size: 4em;
+  font-weight: bold;
+  line-height: -1;
+  float: left;
+  text-shadow: 1px 3px 0px brown;
 }
-#systemBtn{
-    position: absolute;
-    z-index: 100;
-    top: 10px;
-    left: 846px;
-    width: 4%;
-    cursor: pointer;
-    transition: all .3s;
+
+#mainWrap {
+  margin-top: -180px;
+  width: 900px;
+  position: relative;
+  background: #66a2e5;
+  /* margin: 0 auto; */
+  top: 25%;
+  left: 50%;
+  /* margin-left: 450px; */
+  margin-left: -450px;
+  /* overflow: hidden; */
+  /* transform: translateY(-47%); */
+
 }
-#systemBtn:hover{
-    transform: rotate(100deg);
+
+#header {
+  width: 900px;
+  /* height: 140px; */
+  height: 100px;
+  background: #66a2e5;
+  overflow: hidden;
 }
-#adminContents{
-    position: relative;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 800px;
-    
-    height: 800px;
+
+#footer {
+  width: 900px;
+  height: 140px;
+  background: #66a2e5;
+
 }
-#adminSub{
-    text-align: center;
-    font-size: 3em;
-    margin-top: 20px;
+
+#content {
+  width: 900px;
+  /* min-height: 621px; */
+  height: auto;
+  /* background: tan; */
+  position: relative;
+  overflow: hidden;
 }
-#orderListUl{
-    margin-left: 15px;
-    font-weight: bold;
+
+#header img {
+  margin: 0 18px;
+  margin-top: 41px;
+  float: left;
 }
-.orderSub{
-    font-size: 2em; 
+
+#headerBtnWrap {
+  width: 724px;
+  height: 117px;
+  margin-top: 9px;
+  float: left;
 }
-.orderListli{
-    margin: 10px;
+
+.headerBtn {
+  width: 226px;
+  height: 80px;
+  background: #3867d6;
+  border-radius: 10px;
+  text-align: center;
+  float: left;
 }
-#coffeeList{
-    margin-top: 20px;
-    margin-right: 10px;
+
+.headerBtn:nth-child(2) {
+  margin: 0 23px;
 }
-#adminSystemBtn{
-    width: 4%;
-    float: right;
-    margin: 17px;
-    cursor: pointer;
+
+.headerBtn span {
+  /* color: white; */
+  font-size: 4em;
+  font-family: human;
+  line-height: 80px;
+  cursor: pointer;
+  transition: all .3s;
+
 }
-#adminSystemBtn:hover{
-    transform: rotate(100deg);
+
+#EaWrap {
+  color: white;
+  font-size: 50px;
+  font-family: human;
+  line-height: 140px;
+  float: left;
+}
+
+#EA {
+  margin-left: 20px;
+}
+
+#systemBtnWrap {
+  width: 604px;
+  height: 122px;
+  float: right;
+  margin-top: 9px;
+
+
+}
+
+.systemBtn {
+  width: 122px;
+  height: 122px;
+  float: left;
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+#cartBtn {
+  background: #6749ff;
+
+  margin: 0 26px;
+}
+
+#cartBtn img {
+  margin-top: 18px;
+}
+
+#cancelBtn {
+  background: #d85a5a;
+
+}
+
+#cashBtn {
+  background: #e67e22;
+  margin: 0 26px;
+}
+
+#cardBtn {
+  background: #e74c3c;
+}
+
+#cancelBtn span {
+  font-size: 41px;
+  padding: 20px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+}
+
+#cashBtn img {
+  margin-top: 8px;
+  margin-left: 7px;
+}
+
+#cashBtn div {
+  text-align: center;
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+#cardBtn img {
+  margin-top: 13px;
+  margin-left: 9px;
+}
+
+#cardBtn div {
+  text-align: center;
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: 6px;
+}
+
+#headerPrev,
+#headerNext {
+  cursor: pointer;
+  transition: all 0.1s;
+  outline: none;
+}
+
+.swiper-slide:nth-child(2) {
+  background: #3867d6;
+}
+
+.swiper-slide:nth-child(1) {
+  background: #f3816d;
+}
+
+.coffeeMenuRow01 {
+  background: #afd0f4;
+  width: 850px;
+  height: auto;
+  padding-left: 50px;
+}
+
+.coffeeMenu {
+  font-family: 'Jua', sans-serif;
+  width: 240px;
+  height: 223px;
+  transform: scale(0.9);
+  transition: all .3s;
+  overflow: hidden;
+  float: left;
+  cursor: pointer;
+  /* margin: 26px; */
+  margin: auto;
+  /* margin-left: 51px; */
+  /* z-index: 111111111111111111; */
+}
+
+.coffeeMenu:hover {
+  transform: scale(1);
+  color: tomato;
+}
+
+.coffeeMenu:nth-child(2),
+.coffeeMenu:nth-child(5) {
+  margin: 0 37px;
+}
+
+.coffeeImg {
+  /* width: 125px; */
+  height: 140px;
+  display: block;
+  margin: 0 auto;
+}
+
+.coffeeName {
+  display: block;
+  font-weight: bold;
+  font-size: 1.7em;
+}
+
+.coffeePrice {
+  display: block;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+#coffeeOption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+
+
+}
+
+.isOptions {
+  padding: 5px 10px;
+  background: tan;
+  margin: 10px;
+  line-height: 150px;
+  font-size: 1.3em;
+  font-weight: bold;
+  display: none;
+  color: white;
+}
+
+#Oice {
+  background: skyblue;
+}
+
+#Ohot {
+  background: salmon;
+  display: inline;
+}
+
+#Osyrup {
+  background: yellow;
+  color: black;
+  border: 1px solid black;
+}
+
+#Oshot {
+  background: #92c833;
+
+
+
+}
+
+#options {
+  position: absolute;
+  top: 0;
+  left: 250px;
+}
+
+#CoffeeCart {
+  width: 200px;
+  height: 770px;
+  background: #66a2e5;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  /* z-index: 1; */
+  /* left: 73.4%; */
+  left: 62.4%;
+  z-index: -1000;
+  transition: all .5s;
+}
+
+#CoffeeCartTop {
+  width: 100%;
+  height: 82%;
+  background: #afd0f4;
+  overflow: auto;
+  border-left: 2px solid #66a2e5;
+
+
+}
+
+#CoffeeCartBot {
+  width: 100%;
+  height: 72px;
+  line-height: 5;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  color: white;
+
+}
+
+.orderCancelBtn {}
+
+.myOrderListImg {
+  width: 50%;
+  margin-left: 47px;
+}
+
+.myOrderListSub {
+  font-weight: bold;
+  display: block;
+  text-align: center;
+}
+
+.orderCancelBtn {
+  text-align: center;
+  background: url(../img/xIcon.png);
+  background-size: 101%;
+  width: 30px;
+  height: 30px;
+  /* position: absolute; */
+  float: right;
+}
+
+.orderCancelBtnimg {
+  width: 12%;
+  float: right;
+}
+
+
+#paymentCard {
+  position: absolute;
+  transform: scale(0);
+  transition: all .3s;
+  z-index: 1231231;
+  top: 0;
+  left: 0;
+}
+
+#paymentCash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scale(0);
+  transition: all .3s;
+  z-index: 1231231;
+}
+
+#paymentDone {
+  position: absolute;
+  top: 140px;
+  left: 0;
+  z-index: 99;
+}
+
+#adminWindow {
+  width: 900px;
+  height: 783px;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.76);
+  left: 50%;
+  z-index: 0;
+  top: 45%;
+  /* transform: translateX(-50%); */
+  transform: translate(-50%, -47%);
+  transition: all .3s;
+  color: white;
+  opacity: 0;
+  overflow: hidden;
+}
+
+#systemBtn {
+  position: absolute;
+  z-index: 100;
+  top: 10px;
+  left: 846px;
+  width: 4%;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+#systemBtn:hover {
+  transform: rotate(100deg);
+}
+
+#adminContents {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+
+  height: 800px;
+}
+
+#adminSub {
+  text-align: center;
+  font-size: 3em;
+  margin-top: 20px;
+}
+
+#orderListUl {
+  margin-left: 15px;
+  font-weight: bold;
+}
+
+.orderSub {
+  font-size: 2em;
+}
+
+.orderListli {
+  margin: 10px;
+}
+
+#coffeeList {
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+#adminSystemBtn {
+  width: 4%;
+  float: right;
+  margin: 17px;
+  cursor: pointer;
+}
+
+#adminSystemBtn:hover {
+  transform: rotate(100deg);
 }

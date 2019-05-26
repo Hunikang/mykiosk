@@ -52,7 +52,7 @@ function BtnEvent() { //버튼 누를때 애니메이션
 
   prevBtn.addEventListener('click', function () {
 
-    prevBtn.style.transform = "scale(0.9)";  // 클릭하면 작아졌다가 0.1초뒤 다시커짐
+    prevBtn.style.transform = "scale(0.9)"; // 클릭하면 작아졌다가 0.1초뒤 다시커짐
     setTimeout(function () {
       prevBtn.style.transform = "scale(1)";
     }, 100);
@@ -69,6 +69,7 @@ function BtnEvent() { //버튼 누를때 애니메이션
 
 }
 BtnEvent();
+
 function initAllProduct(jsonSrc) { // 상품데이터 불러오기
 
   function loadJson(callback) { //에이젝스
@@ -131,8 +132,8 @@ function defalutProductInit() { //상품목록 업데이트
   const coffeeNameBox = "<span class='coffeeName'></span>"; // 커피이름
   const coffeePriceBox = "<span class='coffeePrice'><span>원</span></span>"; //커피가격
   const coffeeBtn = document.querySelector('#coffeeBtn'); //커피로 메뉴 바꾸는 버튼
-  const dessertBtn = document.querySelector('#dessertBtn');//디저트로 메뉴 바꾸는 버튼
-  const drinkBtn = document.querySelector('#drinkBtn');//음료로 메뉴 바꾸는 버튼
+  const dessertBtn = document.querySelector('#dessertBtn'); //디저트로 메뉴 바꾸는 버튼
+  const drinkBtn = document.querySelector('#drinkBtn'); //음료로 메뉴 바꾸는 버튼
 
   for (let i = 0; i < productLength.length; i++) { //coffeeMenu Div 만큼 반복문을 돌아서 템플릿을 입력
     productLength[i].insertAdjacentHTML('beforeend', coffeeImgBox); //이미지
@@ -160,7 +161,7 @@ function defalutProductInit() { //상품목록 업데이트
     mainBtnColor(3);
   });
 
-  function mainBtnColor(btn) {//메뉴 색상 하이라이트 하는 함수 
+  function mainBtnColor(btn) { //메뉴 색상 하이라이트 하는 함수 
     const dessertBtn = document.querySelector('.dessertBtn');
     const coffeeBtn = document.querySelector('.coffeeBtn');
     const drinkBtn = document.querySelector('.drinkBtn');
@@ -169,22 +170,22 @@ function defalutProductInit() { //상품목록 업데이트
     dessertBtn.style.color = '#ffffff';
     coffeeBtn.style.color = '#ffffff';
     drinkBtn.style.color = '#ffffff';
-    dessertBtn.style.transform="scale(1)";
-    coffeeBtn.style.transform="scale(1)";
-    drinkBtn.style.transform="scale(1)";
+    dessertBtn.style.transform = "scale(1)";
+    coffeeBtn.style.transform = "scale(1)";
+    drinkBtn.style.transform = "scale(1)";
 
     switch (btn) {
       case 1:
         dessertBtn.style.color = '#fff200';
-        dessertBtn.style.transform="scale(1.1)";
+        dessertBtn.style.transform = "scale(1.1)";
         break;
       case 2:
         coffeeBtn.style.color = '#fff200';
-        coffeeBtn.style.transform="scale(1.1)";
+        coffeeBtn.style.transform = "scale(1.1)";
         break;
       case 3:
         drinkBtn.style.color = '#fff200';
-        drinkBtn.style.transform="scale(1.1)";
+        drinkBtn.style.transform = "scale(1.1)";
         break;
       default:
         dessertBtn.style.color = '#ffffff';
@@ -245,6 +246,7 @@ function defalutProductInit() { //상품목록 업데이트
 
 
 menuOn();
+
 function menuOn() {
   Btn();
 }
@@ -335,13 +337,13 @@ function MenuProcess(coffeeId) {
     coffeeName.innerHTML = g_drink[coffeeId].name;
     priceDefalut = g_drink[coffeeId].price;
     menuSelecterSubscript.innerHTML = g_drink[coffeeId].lyrics;
-    iceIcon.style.display='none';
-    hotIcon.style.display='none';
-    iceBtn.style.display='none';
-    hotBtn.style.display='none';
-    shotBtn.style.display='none';
-    syrupBtn.style.display='none';
-    menuSelecter.innerHTML='<div id="noMoreOp"> 선택 가능한 옵션이 없습니다 !</div>';
+    iceIcon.style.display = 'none';
+    hotIcon.style.display = 'none';
+    iceBtn.style.display = 'none';
+    hotBtn.style.display = 'none';
+    shotBtn.style.display = 'none';
+    syrupBtn.style.display = 'none';
+    menuSelecter.innerHTML = '<div id="noMoreOp"> 선택 가능한 옵션이 없습니다 !</div>';
 
 
   } else if (coffeeId.indexOf('dessert') == 0) {
@@ -352,13 +354,13 @@ function MenuProcess(coffeeId) {
     coffeeName.innerHTML = g_dessert[coffeeId].name;
     priceDefalut = g_dessert[coffeeId].price;
     menuSelecterSubscript.innerHTML = g_dessert[coffeeId].lyrics;
-    iceIcon.style.display='none';
-    hotIcon.style.display='none';
-    iceBtn.style.display='none';
-    hotBtn.style.display='none';
-    shotBtn.style.display='none';
-    syrupBtn.style.display='none';
-    menuSelecter.innerHTML='<div id="noMoreOp"> 선택 가능한 옵션이 없습니다 !</div>';
+    iceIcon.style.display = 'none';
+    hotIcon.style.display = 'none';
+    iceBtn.style.display = 'none';
+    hotBtn.style.display = 'none';
+    shotBtn.style.display = 'none';
+    syrupBtn.style.display = 'none';
+    menuSelecter.innerHTML = '<div id="noMoreOp"> 선택 가능한 옵션이 없습니다 !</div>';
 
   } else {
     console.log(' 잘못 된 접근입니다.');
@@ -449,6 +451,7 @@ function MenuProcess(coffeeId) {
   close();
   cancelAll();
 }
+
 function close() { // 창닫기 함수
   var closeBtn = document.querySelector('#closeBtn'); //닫기버튼 누르면 창 닫힘
   closeBtn.addEventListener('click', function () {
@@ -459,6 +462,7 @@ function close() { // 창닫기 함수
 
   });
 }
+
 function cancelAll() { //모든 상품 삭제
   const cancelBtn = document.querySelector('#cancelBtn');
   cancelBtn.addEventListener('click', function () {
@@ -466,9 +470,11 @@ function cancelAll() { //모든 상품 삭제
       orderList.pop();
     }
     coffeeQy();
+    alert('모든 상품이 삭제 되었습니다 !');
   });
 
 }
+
 function coffeeQy(del) { // 전체주문수량 출력하는 함수
   const EA = document.querySelector('#EA');
   if (del) {
@@ -630,7 +636,7 @@ const paymentCardOpen = {
     xhr.send();
   },
   createMenu: function () {
-    if(document.querySelector('#paymentCashWrap')){ // 현금결제창이 열려있을시 닫음
+    if (document.querySelector('#paymentCashWrap')) { // 현금결제창이 열려있을시 닫음
       paymentCashOpen.removeOn();
       paymentCashOpen.isCashOpen = true;
     }
@@ -654,14 +660,19 @@ const paymentCardOpen = {
       }
 
     });
+    this.paymentCard.style.transform="scale(1)";
+    
 
   },
   onClick: function () {
     this.cardBtn.addEventListener('click', function () {
 
       if (paymentCardOpen.isCardOpen) {
-        paymentCardOpen.createMenu();
+        setTimeout(() => {
+          paymentCardOpen.createMenu();
         console.log('페이먼트카드 생성됨');
+        }, 100);
+        
       }
 
 
@@ -671,10 +682,16 @@ const paymentCardOpen = {
     const homeIcon = document.querySelector('#homeIcon');
 
     homeIcon.addEventListener('click', function () {
+      
       if (!paymentCardOpen.isCardOpen) {
-        console.log('paymentWrap삭제!');
-        paymentCardOpen.removeOn();
-        paymentCardOpen.isCardOpen = true;
+        paymentCardOpen.paymentCard.style.transform="scale(0)";
+        setTimeout(() => {
+          console.log('paymentWrap삭제!');
+          paymentCardOpen.removeOn();
+          paymentCardOpen.isCardOpen = true;
+        }, 300);
+      
+        
       } else {
         console.log('paymentWrap 삭제실패!');
       }
@@ -702,7 +719,7 @@ const paymentCardOpen = {
 
 const paymentCashOpen = {
   cashBtn: document.querySelector('#cashBtn'),
-  paymentCash: document.querySelector('#paymentcash'),
+  paymentCash: document.querySelector('#paymentCash'),
   // confirmPrice2:document.querySelector('#CashConfirmPrice'),
   isCashOpen: true,
 
@@ -718,7 +735,7 @@ const paymentCashOpen = {
     xhr.send();
   },
   createMenu: function () {
-    if(document.querySelector('#paymentCardWrap')){ //카드 결제창이 열려있을시 닫힘
+    if (document.querySelector('#paymentCardWrap')) { //카드 결제창이 열려있을시 닫힘
       paymentCardOpen.removeOn();
       paymentCardOpen.isCardOpen = true;
     }
@@ -739,14 +756,18 @@ const paymentCashOpen = {
       } else {
         confirmPrice2.innerHTML = `주문내역이 0 개 입니다.`;
       }
-
+      
     });
+    paymentCashOpen.paymentCash.style.transform="scale(1)";
+    
 
   },
   onClick: function () {
     this.cashBtn.addEventListener('click', function () {
       if (paymentCashOpen.isCashOpen) {
-        paymentCashOpen.createMenu('paymentCardWrap');
+        setTimeout(() => {
+          paymentCashOpen.createMenu('paymentCardWrap');
+        }, 300);
 
         console.log('페이먼트캐시 생성됨');
 
@@ -760,9 +781,13 @@ const paymentCashOpen = {
 
     homeIcon.addEventListener('click', function () {
       if (!paymentCashOpen.isCashOpen) {
-        console.log('paymentWrap삭제!');
-        paymentCashOpen.removeOn();
-        paymentCashOpen.isCashOpen = true;
+        paymentCashOpen.paymentCash.style.transform="scale(0)";
+        setTimeout(() => {
+          console.log('paymentWrap삭제!');
+          paymentCashOpen.removeOn();
+          paymentCashOpen.isCashOpen = true;
+        }, 300);
+
       } else {
         console.log('paymentWrap 삭제실패!');
       }
@@ -815,38 +840,38 @@ paymentDone = {
 
 
 
-function system(){
+function system() {
   const systemBtn = document.querySelector('#systemBtn');
   const adminWindow = document.querySelector('#adminWindow');
   const adminSystemBtn = document.querySelector('#adminSystemBtn');
   let isOpen = false;
 
-  function systemOn(){
-    if(!isOpen){
-      adminWindow.style.opacity=100;
-      adminWindow.style.zIndex=99;
+  function systemOn() {
+    if (!isOpen) {
+      adminWindow.style.opacity = 100;
+      adminWindow.style.zIndex = 99;
       isOpen = true;
       adminOrderList();
-    }else{
-      adminWindow.style.opacity=0;
-      adminWindow.style.zIndex=0;
+    } else {
+      adminWindow.style.opacity = 0;
+      adminWindow.style.zIndex = 0;
       isOpen = false;
       adminOrderListClear();
     }
   }
-  systemBtn.addEventListener('click',function(){
+  systemBtn.addEventListener('click', function () {
     systemOn();
-  
+
   });
-  adminSystemBtn.addEventListener('click',function(){
+  adminSystemBtn.addEventListener('click', function () {
     systemOn();
-  
+
   });
 }
 system();
 
 
-function adminOrderList(){
+function adminOrderList() {
   const orderlistUl = document.querySelector('#orderlistUl');
   const template = `<li class="orderListli">
     <span class="orderSub">1</span>
@@ -855,17 +880,18 @@ function adminOrderList(){
     <span class="orderOp3">4</span>
     <span class="orderPrice">5</span>
   </li>`;
-  for(let i = 0; i<orderList.length; i++){
-    orderlistUl.insertAdjacentHTML('beforeend',template);
+
+  for (let i = 0; i < orderList.length; i++) {
+    orderlistUl.insertAdjacentHTML('beforeend', template);
     const orderSub = document.querySelectorAll('.orderSub');
     const orderOp1 = document.querySelectorAll('.orderOp1');
     const orderOp2 = document.querySelectorAll('.orderOp2');
     const orderOp3 = document.querySelectorAll('.orderOp3');
     const orderPrice = document.querySelectorAll('.orderPrice');
-    const isHot = function(){
-      if(orderList[i].option["hot"]){
+    const isHot = function () {
+      if (orderList[i].option["hot"]) {
         return 'HOT';
-      }else{
+      } else {
         return 'ICE';
       }
     };
@@ -874,13 +900,13 @@ function adminOrderList(){
     orderOp2[i].innerHTML = '시럽추가: ' + orderList[i].option["syrup"] + '번';
     orderOp3[i].innerHTML = '샷추가: ' + orderList[i].option["shot"] + '번';
     orderPrice[i].innerHTML = orderList[i].price + '원';
-    
+
   }
 }
 
-function adminOrderListClear(){
+function adminOrderListClear() {
   const orderListli = document.querySelectorAll('.orderListli');
-  for(let i=0; i<orderList.length; i++){
+  for (let i = 0; i < orderList.length; i++) {
     orderListli[i].remove();
   }
 }
