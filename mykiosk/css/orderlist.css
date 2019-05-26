@@ -30,13 +30,13 @@ background: linear-gradient(to bottom, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, 
     text-shadow: 1px 3px 0px brown;
 }
 #mainWrap{
-    margin-top: 100px;
+    /* margin-top: 100px; */
     width: 900px;
     position: relative;
     background: #66a2e5;;
     margin: 0 auto;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-47%);
  
 }
 #header{
@@ -344,7 +344,7 @@ background: linear-gradient(to bottom, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, 
     z-index: 0;
     top: 50%;
     /* transform: translateX(-50%); */
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-47%);
     transition: all .3s;
     color: white;
     opacity: 0;
