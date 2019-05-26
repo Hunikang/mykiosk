@@ -401,7 +401,7 @@ body {
 
 #paymentDone {
   position: absolute;
-  top: 140px;
+  top: 0px;
   left: 0;
   z-index: 99;
 }
