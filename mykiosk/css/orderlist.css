@@ -3,43 +3,66 @@
     src: url(../font/휴먼견출모음t.TTF) format('truetype');
 }
 body{
-    background: #efe303;
+    /* background: #efe303; */
+    background: #36D1DC;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #5B86E5, #36D1DC);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+#logos{
+    width: 900px;
+    height: 85px;
+    overflow: hidden;
+    background: #66a2e5;
+}
+#mainLogo{
+    width: 80px;
+    margin-left: 20px;
+    float: left;
+}
+.logosSub{
+    color: #A95C3E;
+    line-height: 106px;
+    font-size: 4em;
+    font-weight: bold;
+    line-height: -1;
+    float: left;
+    text-shadow: 1px 3px 0px brown;
 }
 #mainWrap{
-    /* width: 900px;
-    max-height: 1080px;
-    margin: 0 auto;
-    background: #fff200;
-    overflow: hidden; */
     margin-top: 100px;
     width: 900px;
     position: relative;
-    background: #fff200;
-
+    background: #66a2e5;;
     margin: 0 auto;
+    top: 50%;
+    transform: translateY(-50%);
  
 }
 #header{
     width: 900px;
-    height: 140px;
-    background: #4c96d7;
+    /* height: 140px; */
+    height: 100px;
+    background: #66a2e5;
+    overflow: hidden;
 }
 #footer{
     width: 900px;
     height: 140px;
-    background: #4c96d7;
+    background: #66a2e5;
 
 }
 #content{
     width: 900px;
-    min-height: 621px;
-    background: tan;
+    /* min-height: 621px; */
+    height: auto;
+    /* background: tan; */
     position: relative;
     overflow: hidden;
 }
 #header img{
     margin: 0 18px;
-    margin-top: 70px;
+    margin-top: 41px;
     float: left;
 }
 #headerBtnWrap{
@@ -50,7 +73,7 @@ body{
 }
 .headerBtn{
     width: 226px;
-    height: 117px;
+    height: 80px;
     background: #3867d6;
     border-radius: 10px;
     text-align: center;
@@ -61,10 +84,11 @@ body{
 }
 .headerBtn span{
     /* color: white; */
-    font-size: 72px;
+    font-size: 4em;
     font-family: human;
-    line-height: 117px;
+    line-height: 80px;
     cursor: pointer;
+    transition: all .3s;
     
 }
 #EaWrap{
@@ -155,22 +179,27 @@ body{
     background: #f3816d;
 }
 .coffeeMenuRow01{
-    background: #fff200;    
+    background: #afd0f4;    
     width: 900px;
-    height: 600px;
-    padding: 50px;
+    height: auto;
+    /* padding-left: 50px; */
 }
 .coffeeMenu{
     width: 240px;
-    height: 260px;
-   transform: scale(1);
-   transition: all .3s;
+    height: 223px;
+    transform: scale(0.9);
+    transition: all .3s;
     overflow: hidden;
     float: left;
     cursor: pointer;
+    /* margin: 26px; */
+    margin: auto;
+    margin-left: 51px;
+    /* z-index: 111111111111111111; */
 }
 .coffeeMenu:hover{
-    transform: scale(1.2);
+    transform: scale(1);
+    color:tomato;
 }
 .coffeeMenu:nth-child(2),.coffeeMenu:nth-child(5){
     margin: 0 37px;
@@ -191,9 +220,9 @@ body{
 }
 #coffeeOption{
     position: absolute;
-    top: 52%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%,-53%);
+    transform: translate(-50%,-50%);
     z-index: 1000;
 
     
@@ -233,31 +262,34 @@ body{
 }
 #CoffeeCart{
     width: 200px;
-    height: 621px;
-    background: #3867d6;
+    height: 770px;
+    background: #66a2e5;
     position: absolute;
-    top: 0;
-    z-index: 1000;
-    left: 900px;
-    
-    transition: all .3s;
+    top: 50%;
+    transform: translateY(-50%);
+    /* z-index: 1; */
+    /* left: 73.4%; */
+    left: 62.4%;
+    z-index: -1000;
+    transition: all .5s;
 }
 #CoffeeCartTop{
     width: 100%;
-    height: 90%;
-    background: #fff200;
+    height: 82%;
+    background: #afd0f4;
     overflow: auto;
+    border-left: 2px solid #66a2e5;
 
     
 }
 #CoffeeCartBot{
     width: 100%;
-    height: 10%;
-    line-height: 2;
+    height: 72px;
+    line-height: 5;
     text-align: center;
     font-size: 2em;
     font-weight: bold;
-    color:white;
+    color: white;
     
 }
 .orderCancelBtn{
@@ -292,7 +324,7 @@ body{
 }
 #paymentCash{
     position: absolute;
-    top: 140px;
+    top: 0;
     left: 0;
     z-index: 1231231;
 }
@@ -305,22 +337,25 @@ body{
 
 #adminWindow{
     width: 900px;
-    height: 901px;
+    height: 783px;
     position: absolute;
     background: rgba(0, 0, 0, 0.76);
     left: 50%;
-    z-index: 99999;
-    top:-100%;
-    transform: translateX(-50%);
+    z-index: 0;
+    top: 50%;
+    /* transform: translateX(-50%); */
+    transform: translate(-50%,-50%);
     transition: all .3s;
-    color:white;
+    color: white;
+    opacity: 0;
+    overflow: hidden;
 }
 #systemBtn{
     position: absolute;
-    z-index: 99999;
+    z-index: 100;
     top: 10px;
-    left: 831px;
-    width: 5%;
+    left: 846px;
+    width: 4%;
     cursor: pointer;
     transition: all .3s;
 }
@@ -339,6 +374,7 @@ body{
 #adminSub{
     text-align: center;
     font-size: 3em;
+    margin-top: 20px;
 }
 #orderListUl{
     margin-left: 15px;
@@ -349,4 +385,17 @@ body{
 }
 .orderListli{
     margin: 10px;
+}
+#coffeeList{
+    margin-top: 20px;
+    margin-right: 10px;
+}
+#adminSystemBtn{
+    width: 4%;
+    float: right;
+    margin: 17px;
+    cursor: pointer;
+}
+#adminSystemBtn:hover{
+    transform: rotate(100deg);
 }

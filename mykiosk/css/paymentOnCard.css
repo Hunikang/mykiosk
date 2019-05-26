@@ -1,11 +1,11 @@
 #paymentCardWrap{
     width: 900px;
-    height: 621px;
+    height: 770px;
     background: rgba(0, 0, 0, 0.38);
     /* position: relative; */
     position: absolute;
     z-index: 99999999;
-    top: -621px;
+    top: -631px;
     left: 0px;
 }
 #paymentCardContent{

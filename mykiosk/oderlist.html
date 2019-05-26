@@ -23,7 +23,7 @@
     <style>
         .swiper-container {
             width: 900px;
-            height: 621px;
+            height: auto;
             /* border:5px solid silver; */
             /* border-radius:7px; */
             /* box-shadow:0 0 20px #ccc inset; */
@@ -48,15 +48,30 @@
 
 
 <body onselectstart="return false">
+       
         <div id="adminWindow">
+                <img id="adminSystemBtn"src="./img/system.png">
             <div id="adminContents">
                 <div id="adminSub"><h1>Barista Menu</h1></div>
+                
                 <ul id="orderlistUl"></ul>
             </div>
         </div>
+
     <div id="mainWrap">
-            
+        <div id="logos">
+            <img id="mainLogo"src="img/인트로커피.png">
+            <span class="logosSub">HOONS COFFEE</span>
             <img id="systemBtn"src="./img/system.png">
+            <div id="CoffeeCart" class="dontclose">
+                    <div id="CoffeeCartTop" class="dontclose">
+                        <ul id="coffeeList" class="dontclose"></ul>
+                    </div>
+                    <div id="CoffeeCartBot" class="dontclose"></div>
+                </div>
+        </div>
+            
+           
         <div id="header">
             <img id="headerPrev" class="swiper-button-prev" src="img/orderlistAL.png">
             <div id="headerBtnWrap">
@@ -76,12 +91,7 @@
         </div>
         <div id="content">
             
-                <div id="CoffeeCart" class="dontclose">
-                    <div id="CoffeeCartTop" class="dontclose">
-                        <ul id="coffeeList" class="dontclose"></ul>
-                    </div>
-                    <div id="CoffeeCartBot" class="dontclose"></div>
-                </div>
+           
 
             <div class="swiper-container">
                 <div class="swiper-wrapper">

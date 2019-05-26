@@ -169,16 +169,22 @@ function defalutProductInit() { //상품목록 업데이트
     dessertBtn.style.color = '#ffffff';
     coffeeBtn.style.color = '#ffffff';
     drinkBtn.style.color = '#ffffff';
+    dessertBtn.style.transform="scale(1)";
+    coffeeBtn.style.transform="scale(1)";
+    drinkBtn.style.transform="scale(1)";
 
     switch (btn) {
       case 1:
-        dessertBtn.style.color = 'tomato';
+        dessertBtn.style.color = '#fff200';
+        dessertBtn.style.transform="scale(1.1)";
         break;
       case 2:
-        coffeeBtn.style.color = 'tomato';
+        coffeeBtn.style.color = '#fff200';
+        coffeeBtn.style.transform="scale(1.1)";
         break;
       case 3:
-        drinkBtn.style.color = 'tomato';
+        drinkBtn.style.color = '#fff200';
+        drinkBtn.style.transform="scale(1.1)";
         break;
       default:
         dessertBtn.style.color = '#ffffff';
@@ -489,8 +495,8 @@ function CoffeeCart() { //장바구니 on off
   function cartOn() { // on off 함수
     if (set) {
       set = false;
-      CoffeeCart.style.left = '900px';
-      CoffeeCart.style.boxShadow = '0';
+      CoffeeCart.style.left = '73.4%';
+      // CoffeeCart.style.boxShadow = '0';
       cartOrderClear(); // 장바구니 off 시 상품표시 clear 해준다 
       console.log(' 닫힘 !');
 
@@ -499,7 +505,7 @@ function CoffeeCart() { //장바구니 on off
       console.log(' 열림 !');
       // CoffeeCart.style.boxShadow='0px 1px 5px black';
 
-      CoffeeCart.style.left = '700px';
+      CoffeeCart.style.left = '99.4%';
       CartSetting(); // 가격출력함수 호출
       cartOrder(); // 장바구니 기능 호출 하는 함수 호출
     }
@@ -510,7 +516,7 @@ function CoffeeCart() { //장바구니 on off
       if (e.target != cartBtn && e.target != cartBtn2 && !e.target.classList.contains('dontclose')) {
         console.log('다른곳눌러서닫힘')
         set = false;
-        CoffeeCart.style.left = '900px';
+        CoffeeCart.style.left = '73.4%';
         cartOrderClear(); // 장바구니 off 시 상품표시 clear 해준다 
       } else {
         console.log('조아 ok ');
@@ -812,17 +818,29 @@ paymentDone = {
 function system(){
   const systemBtn = document.querySelector('#systemBtn');
   const adminWindow = document.querySelector('#adminWindow');
+  const adminSystemBtn = document.querySelector('#adminSystemBtn');
   let isOpen = false;
-  systemBtn.addEventListener('click',function(){
+
+  function systemOn(){
     if(!isOpen){
-      adminWindow.style.top='0%';
+      adminWindow.style.opacity=100;
+      adminWindow.style.zIndex=99;
       isOpen = true;
       adminOrderList();
     }else{
-      adminWindow.style.top='-100%';
+      adminWindow.style.opacity=0;
+      adminWindow.style.zIndex=0;
       isOpen = false;
       adminOrderListClear();
     }
+  }
+  systemBtn.addEventListener('click',function(){
+    systemOn();
+  
+  });
+  adminSystemBtn.addEventListener('click',function(){
+    systemOn();
+  
   });
 }
 system();
