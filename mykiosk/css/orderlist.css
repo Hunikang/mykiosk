@@ -40,12 +40,12 @@ body {
 }
 
 #mainWrap {
-  margin-top: -180px;
+  margin-top: -385.5px;
   width: 900px;
   position: relative;
   background: #66a2e5;
   /* margin: 0 auto; */
-  top: 25%;
+  top: 50%;
   left: 50%;
   /* margin-left: 450px; */
   margin-left: -450px;
@@ -413,9 +413,11 @@ body {
   background: rgba(0, 0, 0, 0.76);
   left: 50%;
   z-index: 0;
-  top: 45%;
+  top: 50%;
+  margin-top: -391.5px;
+  margin-left: -450px;
   /* transform: translateX(-50%); */
-  transform: translate(-50%, -47%);
+  /* transform: translate(-50%, -45%); */
   transition: all .3s;
   color: white;
   opacity: 0;
